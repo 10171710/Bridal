@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Admin Dashboard — Aurelle Bridal Atelier</title>
+  <meta name="description" content="Executive administration suite for Aurelle Bridal Atelier — manage master bookings, client directory, artist schedules, financial ledger, and bride reviews.">
+  <meta name="keywords" content="Aurelle admin dashboard, bridal studio management, salon booking software, artist roster schedule">
+  <meta name="author" content="Aurelle Bridal Studio">
+  <meta name="theme-color" content="#b76e79">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://aurellebridal.com/admin-dashboard.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aurelle Bridal Atelier">
+  <meta property="og:title" content="Admin Dashboard — Aurelle Bridal Atelier">
+  <meta property="og:description" content="Executive management portal for Aurelle Bridal Atelier.">
+  <meta property="og:url" content="https://aurellebridal.com/admin-dashboard.html">
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Italiana&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link id="au-bs-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link id="au-rtl-css" rel="stylesheet" href="assets/css/rtl.css" disabled>
+
+  <script src="assets/js/theme-init.js"></script>
+</head>
+
+<body class="dash-body">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="dash-shell">
+
+    <!-- ==================================================================
+         SIDEBAR
+         ================================================================== -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <a class="dash-brand" href="index.html">
+        <span class="brand-mark"><i class="bi bi-flower2" aria-hidden="true"></i></span>
+        <span class="brand-text">Aurelle<small>Admin Suite</small></span>
+      </a>
+
+      <div class="dash-user">
+        <div class="dash-user-avatar" role="img" aria-label="Admin avatar">
+          <span data-user-avatar-initials>NS</span>
+        </div>
+        <div class="min-w-0">
+          <div class="du-name text-truncate" data-session-name>Nadia Sethi</div>
+          <div class="du-role" data-session-role-title>Studio Director &amp; Founder</div>
+        </div>
+      </div>
+
+      <nav class="dash-nav" aria-label="Admin navigation">
+        <div class="dash-nav-label">Management</div>
+        <button type="button" class="dash-nav-link is-active" data-panel="overview" aria-current="page">
+          <i class="bi bi-speedometer2" aria-hidden="true"></i> <span>Executive Overview</span>
+        </button>
+        <button type="button" class="dash-nav-link" data-panel="bookings">
+          <i class="bi bi-calendar2-check" aria-hidden="true"></i> <span>Bookings Manager</span> <span class="nav-count" id="adminBookingsCount">12</span>
+        </button>
+        <button type="button" class="dash-nav-link" data-panel="clients">
+          <i class="bi bi-people" aria-hidden="true"></i> <span>Client Directory</span> <span class="nav-count">10</span>
+        </button>
+        <button type="button" class="dash-nav-link" data-panel="artists">
+          <i class="bi bi-brush" aria-hidden="true"></i> <span>Artist Roster</span> <span class="nav-count">4</span>
+        </button>
+
+        <div class="dash-nav-label">Finance & Growth</div>
+        <button type="button" class="dash-nav-link" data-panel="financials">
+          <i class="bi bi-cash-stack" aria-hidden="true"></i> <span>Invoices & Revenue</span> <span class="nav-count">5</span>
+        </button>
+        <button type="button" class="dash-nav-link" data-panel="reviews">
+          <i class="bi bi-star" aria-hidden="true"></i> <span>Client Reviews</span> <span class="nav-count">6</span>
+        </button>
+        <button type="button" class="dash-nav-link" data-panel="settings">
+          <i class="bi bi-gear" aria-hidden="true"></i> <span>Studio Settings</span>
+        </button>
+      </nav>
+
+      <div class="dash-sidebar-foot">
+        <button type="button" class="btn btn-ghost-light btn-sm w-100 d-flex align-items-center justify-content-center gap-2" data-logout>
+          <i class="bi bi-box-arrow-right" aria-hidden="true"></i> Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <div class="dash-backdrop" data-dash-backdrop></div>
+
+    <!-- ==================================================================
+         MAIN AREA
+         ================================================================== -->
+    <div class="dash-main">
+      <header class="dash-topbar">
+        <button type="button" class="dash-sidebar-toggle btn-icon btn-soft" data-dash-sidebar-toggle aria-label="Open sidebar menu" aria-expanded="false" aria-controls="dashSidebar">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+
+        <div>
+          <h1 id="panelTitle">Executive Overview</h1>
+          <p class="dt-sub" id="panelSub">Atelier bookings, revenue growth, and artist availability at a glance.</p>
+        </div>
+
+        <div class="dash-topbar-actions">
+          <div class="dash-search d-none d-md-block">
+            <i class="bi bi-search" aria-hidden="true"></i>
+            <input type="search" class="form-control" id="adminSearch" placeholder="Search brides, bookings, ID…" aria-label="Search dashboard">
+          </div>
+
+          <button type="button" class="btn btn-brand btn-sm d-none d-sm-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#newBookingModal">
+            <i class="bi bi-plus-lg"></i> New Booking
+          </button>
+
+          <button type="button" class="nav-tool-btn" data-theme-toggle aria-pressed="false" title="Toggle dark mode" aria-label="Toggle dark mode">
+            <i class="bi bi-moon-stars" aria-hidden="true"></i>
+          </button>
+
+          <button type="button" class="nav-tool-btn nav-tool-btn-text" data-dir-toggle title="Toggle layout direction (LTR/RTL)" aria-label="Toggle layout direction">
+            <span data-dir-current>LTR</span>
+          </button>
+
+          <!-- Notifications Dropdown -->
+          <div class="dropdown">
+            <button type="button" class="nav-tool-btn dash-bell dropdown-toggle" id="adminNotifDrop" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications, 4 unread">
+              <i class="bi bi-bell" aria-hidden="true"></i>
+              <span class="dot"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end dropdown-notif" aria-labelledby="adminNotifDrop">
+              <div class="p-3 border-bottom d-flex justify-content-between align-items-center">
+                <span class="fw-semibold text-heading-au">Admin Notifications</span>
+                <span class="badge bg-danger-subtle text-danger">4 New</span>
+              </div>
+              <div class="notif-item is-unread">
+                <div class="notif-icon"><i class="bi bi-calendar-plus" aria-hidden="true"></i></div>
+                <div>
+                  <div class="notif-title">New Booking Request</div>
+                  <div class="notif-text">Meera Chandran requested "The Bride" package for Jan 16, 2027.</div>
+                </div>
+                <span class="notif-time">1h ago</span>
+              </div>
+              <div class="notif-item is-unread">
+                <div class="notif-icon"><i class="bi bi-credit-card" aria-hidden="true"></i></div>
+                <div>
+                  <div class="notif-title">Payment Received ($423.00)</div>
+                  <div class="notif-text">Deposit confirmed from Aisha Rahman (INV-1089).</div>
+                </div>
+                <span class="notif-time">3h ago</span>
+              </div>
+              <div class="notif-item is-unread">
+                <div class="notif-icon"><i class="bi bi-star" aria-hidden="true"></i></div>
+                <div>
+                  <div class="notif-title">5-Star Review Received</div>
+                  <div class="notif-text">Ritu Anand submitted a verified review for Bridal Artistry.</div>
+                </div>
+                <span class="notif-time">1d ago</span>
+              </div>
+              <div class="notif-item is-unread">
+                <div class="notif-icon"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></div>
+                <div>
+                  <div class="notif-title">Trial Rescheduled</div>
+                  <div class="notif-text">Naledi Dlamini rescheduled trial to Mar 02, 2027.</div>
+                </div>
+                <span class="notif-time">1d ago</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Admin Avatar Pill -->
+          <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-soft d-flex align-items-center gap-2 dropdown-toggle rounded-pill px-2 py-1" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="dash-user-avatar" style="width:28px;height:28px;font-size:0.75rem;" data-user-avatar-initials>NS</span>
+              <span class="d-none d-lg-inline fw-medium text-heading-au" data-session-first-name>Nadia</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+              <li><button class="dropdown-item" type="button" data-panel="settings"><i class="bi bi-gear me-2"></i> Settings</button></li>
+              <li><button class="dropdown-item" type="button" data-panel="financials"><i class="bi bi-cash-stack me-2"></i> Financial Ledger</button></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><button class="dropdown-item text-danger" type="button" data-logout><i class="bi bi-box-arrow-right me-2"></i> Sign Out</button></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <main id="main" class="dash-content">
+
+        <!-- ============================================================
+             PANEL 1: EXECUTIVE OVERVIEW
+             ============================================================ -->
+        <section class="dash-panel-view is-active" id="panel-overview" data-panel-view="overview">
+          
+          <!-- 4 KPI Cards -->
+          <div class="row g-3 g-lg-4 mb-4">
+            <div class="col-6 col-lg-3">
+              <div class="kpi-card">
+                <div class="kpi-top">
+                  <div>
+                    <div class="kpi-label">Month Revenue</div>
+                    <div class="kpi-value">$42,850</div>
+                  </div>
+                  <div class="kpi-icon tone-green"><i class="bi bi-currency-dollar"></i></div>
+                </div>
+                <span class="kpi-delta up"><i class="bi bi-arrow-up-short"></i> +14.2% vs last month</span>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="kpi-card">
+                <div class="kpi-top">
+                  <div>
+                    <div class="kpi-label">Active Brides</div>
+                    <div class="kpi-value">38</div>
+                  </div>
+                  <div class="kpi-icon"><i class="bi bi-people-fill"></i></div>
+                </div>
+                <span class="kpi-delta">4 trials scheduled this week</span>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="kpi-card">
+                <div class="kpi-top">
+                  <div>
+                    <div class="kpi-label">Trial Conversion</div>
+                    <div class="kpi-value">94.2%</div>
+                  </div>
+                  <div class="kpi-icon tone-gold"><i class="bi bi-award"></i></div>
+                </div>
+                <span class="kpi-delta up"><i class="bi bi-arrow-up-short"></i> +3.1% industry benchmark</span>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="kpi-card">
+                <div class="kpi-top">
+                  <div>
+                    <div class="kpi-label">Artist Utilization</div>
+                    <div class="kpi-value">86%</div>
+                  </div>
+                  <div class="kpi-icon tone-purple"><i class="bi bi-graph-up-arrow"></i></div>
+                </div>
+                <span class="kpi-delta">4 open slots this month</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts & Schedule Grid -->
+          <div class="row g-3 g-lg-4 mb-4">
+            <div class="col-lg-8">
+              <div class="panel-au">
+                <div class="panel-head">
+                  <h2><i class="bi bi-bar-chart-line"></i> 2026 Bridal Revenue & Booking Trends</h2>
+                  <div class="panel-actions">
+                    <span class="badge bg-danger-subtle text-danger border">Year to Date</span>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div style="height:260px;position:relative;">
+                    <canvas id="revenueChart" style="width:100%;height:100%;"></canvas>
+                  </div>
+                  <div class="d-flex justify-content-center gap-4 mt-3 small text-muted-au">
+                    <span><i class="bi bi-square-fill text-brand me-1"></i> Gross Revenue ($)</span>
+                    <span><i class="bi bi-square-fill text-secondary me-1"></i> Completed Bookings</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="panel-au">
+                <div class="panel-head">
+                  <h2><i class="bi bi-pie-chart"></i> Package Share</h2>
+                </div>
+                <div class="panel-body">
+                  <div style="height:220px;position:relative;">
+                    <canvas id="packageChart" style="width:100%;height:100%;"></canvas>
+                  </div>
+                  <div class="mt-3 small">
+                    <div class="d-flex justify-content-between py-1 border-bottom">
+                      <span><i class="bi bi-circle-fill text-brand me-1"></i> The Bride ($1,690)</span>
+                      <strong>52%</strong>
+                    </div>
+                    <div class="d-flex justify-content-between py-1 border-bottom">
+                      <span><i class="bi bi-circle-fill text-warning me-1"></i> The Full Week ($3,450)</span>
+                      <strong>28%</strong>
+                    </div>
+                    <div class="d-flex justify-content-between py-1">
+                      <span><i class="bi bi-circle-fill text-info me-1"></i> The Trial / Sangeet</span>
+                      <strong>20%</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Today's Studio Schedule & Recent Inquiries -->
+          <div class="row g-3 g-lg-4">
+            <div class="col-lg-6">
+              <div class="panel-au">
+                <div class="panel-head">
+                  <h2><i class="bi bi-clock-history"></i> Today's Studio Appointments</h2>
+                </div>
+                <div class="panel-body p-0">
+                  <div class="p-3 border-bottom d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge bg-danger-subtle text-danger px-2 py-1">10:00 AM</span>
+                      <div>
+                        <div class="fw-semibold text-heading-au">Farah Idris — Trial Makeup</div>
+                        <div class="text-muted-au small">Artist: Nadia Sethi · Atelier Studio 300</div>
+                      </div>
+                    </div>
+                    <span class="status-pill status-completed">Completed</span>
+                  </div>
+
+                  <div class="p-3 border-bottom d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge bg-success-subtle text-success px-2 py-1">2:00 PM</span>
+                      <div>
+                        <div class="fw-semibold text-heading-au">Camille Fontaine — Bridal Hair Test</div>
+                        <div class="text-muted-au small">Artist: Mira Patel · Styling Suite B</div>
+                      </div>
+                    </div>
+                    <span class="status-pill status-confirmed">In Progress</span>
+                  </div>
+
+                  <div class="p-3 d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge bg-primary-subtle text-primary px-2 py-1">4:30 PM</span>
+                      <div>
+                        <div class="fw-semibold text-heading-au">Aisha Rahman — Look Review & Notes</div>
+                        <div class="text-muted-au small">Artist: Nadia Sethi · Digital Consultation</div>
+                      </div>
+                    </div>
+                    <span class="status-pill status-pending">Upcoming</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="panel-au">
+                <div class="panel-head">
+                  <h2><i class="bi bi-inbox"></i> Incoming Wedding Inquiries</h2>
+                </div>
+                <div class="panel-body p-0">
+                  <div class="p-3 border-bottom d-flex align-items-center justify-content-between">
+                    <div>
+                      <div class="fw-semibold text-heading-au">Meera Chandran</div>
+                      <div class="text-muted-au small">Wedding Date: Jan 16, 2027 · San Jose City Hall & Garden</div>
+                    </div>
+                    <button type="button" class="btn btn-outline-brand btn-sm" onclick="alert('Viewing inquiry for Meera Chandran')">Review</button>
+                  </div>
+
+                  <div class="p-3 border-bottom d-flex align-items-center justify-content-between">
+                    <div>
+                      <div class="fw-semibold text-heading-au">Naledi Dlamini</div>
+                      <div class="text-muted-au small">Wedding Date: Apr 25, 2027 · Presidio Officers' Club</div>
+                    </div>
+                    <button type="button" class="btn btn-outline-brand btn-sm" onclick="alert('Viewing inquiry for Naledi Dlamini')">Review</button>
+                  </div>
+
+                  <div class="p-3 d-flex align-items-center justify-content-between">
+                    <div>
+                      <div class="fw-semibold text-heading-au">Sana Qureshi</div>
+                      <div class="text-muted-au small">Wedding Date: Sep 06, 2027 · Napa Valley Estate</div>
+                    </div>
+                    <button type="button" class="btn btn-outline-brand btn-sm" onclick="alert('Viewing inquiry for Sana Qureshi')">Review</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ============================================================
+             PANEL 2: BOOKINGS MANAGER
+             ============================================================ -->
+        <section class="dash-panel-view" id="panel-bookings" data-panel-view="bookings">
+          <div class="panel-au mb-4">
+            <div class="panel-head">
+              <h2><i class="bi bi-calendar2-check"></i> Master Bookings Registry</h2>
+              <div class="panel-actions">
+                <button type="button" class="btn btn-brand btn-sm" data-bs-toggle="modal" data-bs-target="#newBookingModal">
+                  <i class="bi bi-plus-lg me-1"></i> New Booking
+                </button>
+              </div>
+            </div>
+
+            <div class="table-toolbar">
+              <input type="text" class="form-control" id="bookingFilterSearch" placeholder="Search by bride name or ID…">
+              <select class="form-select" id="bookingStatusFilter">
+                <option value="all" selected>All Statuses (12)</option>
+                <option value="confirmed">Confirmed (5)</option>
+                <option value="pending">Pending (3)</option>
+                <option value="completed">Completed (3)</option>
+                <option value="cancelled">Cancelled (1)</option>
+              </select>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-au" id="bookingsTable">
+                <thead>
+                  <tr>
+                    <th>Ref #</th>
+                    <th>Bride Name</th>
+                    <th>Service Package</th>
+                    <th>Wedding Date</th>
+                    <th>Artist</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="bookingsTableBody">
+                  <tr data-status="confirmed">
+                    <td><strong>BK-3001</strong></td>
+                    <td>
+                      <div class="avatar-cell">
+                        <span class="ac-avatar">AR</span>
+                        <div>
+                          <div class="ac-name">Aisha Rahman</div>
+                          <div class="ac-sub">+1 (415) 555-0118</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>The Bride Package</td>
+                    <td>Nov 14, 2026</td>
+                    <td>Nadia Sethi</td>
+                    <td>$1,690.00</td>
+                    <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-outline-brand" onclick="alert('Viewing booking BK-3001')">Manage</button>
+                    </td>
+                  </tr>
+
+                  <tr data-status="confirmed">
+                    <td><strong>BK-3003</strong></td>
+                    <td>
+                      <div class="avatar-cell">
+                        <span class="ac-avatar">CF</span>
+                        <div>
+                          <div class="ac-name">Camille Fontaine</div>
+                          <div class="ac-sub">+1 (628) 555-0141</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>The Full Week</td>
+                    <td>Oct 03, 2026</td>
+                    <td>Mira Patel</td>
+                    <td>$3,450.00</td>
+                    <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-outline-brand" onclick="alert('Viewing booking BK-3003')">Manage</button>
+                    </td>
+                  </tr>
+
+                  <tr data-status="pending">
+                    <td><strong>BK-3004</strong></td>
+                    <td>
+                      <div class="avatar-cell">
+                        <span class="ac-avatar">MC</span>
+                        <div>
+                          <div class="ac-name">Meera Chandran</div>
+                          <div class="ac-sub">+1 (415) 555-0176</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Bridal Glam & Sangeet</td>
+                    <td>Jan 16, 2027</td>
+                    <td>Zainab Al-Mansoor</td>
+                    <td>$1,230.00</td>
+                    <td><span class="status-pill status-pending">Pending</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-brand" onclick="alert('Confirming booking BK-3004')">Approve</button>
+                    </td>
+                  </tr>
+
+                  <tr data-status="completed">
+                    <td><strong>BK-3002</strong></td>
+                    <td>
+                      <div class="avatar-cell">
+                        <span class="ac-avatar">FI</span>
+                        <div>
+                          <div class="ac-name">Farah Idris</div>
+                          <div class="ac-sub">+1 (415) 555-0155</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>The Trial Session</td>
+                    <td>Sep 19, 2026</td>
+                    <td>Nadia Sethi</td>
+                    <td>$240.00</td>
+                    <td><span class="status-pill status-completed">Completed</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-outline-brand" onclick="alert('Viewing booking BK-3002')">Dossier</button>
+                    </td>
+                  </tr>
+
+                  <tr data-status="confirmed">
+                    <td><strong>BK-3005</strong></td>
+                    <td>
+                      <div class="avatar-cell">
+                        <span class="ac-avatar">ND</span>
+                        <div>
+                          <div class="ac-name">Naledi Dlamini</div>
+                          <div class="ac-sub">+1 (510) 555-0198</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>The Bride Package</td>
+                    <td>Apr 25, 2027</td>
+                    <td>Elena Rossi</td>
+                    <td>$1,690.00</td>
+                    <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-outline-brand" onclick="alert('Viewing booking BK-3005')">Manage</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             PANEL 3: CLIENT DIRECTORY
+             ============================================================ -->
+        <section class="dash-panel-view" id="panel-clients" data-panel-view="clients">
+          <div class="panel-au">
+            <div class="panel-head">
+              <h2><i class="bi bi-people"></i> Registered Brides & Clients</h2>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-au">
+                <thead>
+                  <tr>
+                    <th>Bride Profile</th>
+                    <th>Email</th>
+                    <th>Wedding Date</th>
+                    <th>Assigned Artist</th>
+                    <th>Total Spent</th>
+                    <th>Status</th>
+                    <th class="text-end">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="avatar-cell">
+                        <span class="ac-avatar">AR</span>
+                        <div>
+                          <div class="ac-name">Aisha Rahman</div>
+                          <div class="ac-sub">+1 (415) 555-0118</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>aisha.rahman@gmail.com</td>
+                    <td>Nov 14, 2026</td>
+                    <td>Nadia Sethi</td>
+                    <td>$1,690.00</td>
+                    <td><span class="badge bg-success-subtle text-success">Active Bride</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-outline-brand" onclick="alert('Viewing profile for Aisha Rahman')">Dossier</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="avatar-cell">
+                        <span class="ac-avatar">CF</span>
+                        <div>
+                          <div class="ac-name">Camille Fontaine</div>
+                          <div class="ac-sub">+1 (628) 555-0141</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>camille.fontaine@gmail.com</td>
+                    <td>Oct 03, 2026</td>
+                    <td>Mira Patel</td>
+                    <td>$3,450.00</td>
+                    <td><span class="badge bg-success-subtle text-success">Active Bride</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-outline-brand" onclick="alert('Viewing profile for Camille Fontaine')">Dossier</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="avatar-cell">
+                        <span class="ac-avatar">PM</span>
+                        <div>
+                          <div class="ac-name">Priya Menon</div>
+                          <div class="ac-sub">+1 (628) 555-0173</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>priya.menon@outlook.com</td>
+                    <td>Jun 20, 2026</td>
+                    <td>Zainab Al-Mansoor</td>
+                    <td>$740.00</td>
+                    <td><span class="badge bg-secondary-subtle text-muted">Completed</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-outline-brand" onclick="alert('Viewing profile for Priya Menon')">Archive</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="avatar-cell">
+                        <span class="ac-avatar">RA</span>
+                        <div>
+                          <div class="ac-name">Ritu Anand</div>
+                          <div class="ac-sub">+1 (707) 555-0129</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>ritu.anand@gmail.com</td>
+                    <td>May 17, 2026</td>
+                    <td>Nadia Sethi</td>
+                    <td>$890.00</td>
+                    <td><span class="badge bg-secondary-subtle text-muted">Completed</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-outline-brand" onclick="alert('Viewing profile for Ritu Anand')">Archive</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             PANEL 4: ARTIST ROSTER
+             ============================================================ -->
+        <section class="dash-panel-view" id="panel-artists" data-panel-view="artists">
+          <div class="panel-au mb-4">
+            <div class="panel-head">
+              <h2><i class="bi bi-brush"></i> Master Artists & Styling Team</h2>
+            </div>
+            <div class="panel-body">
+              <div class="artist-roster-grid">
+                
+                <!-- Artist 1 -->
+                <div class="artist-card">
+                  <div class="artist-card-top">
+                    <div class="artist-avatar"><i class="bi bi-flower2"></i></div>
+                    <div>
+                      <div class="artist-name">Nadia Sethi</div>
+                      <div class="artist-role">Lead Master Artist & Founder</div>
+                    </div>
+                  </div>
+                  <div class="artist-stat-row">
+                    <span>Active Bookings</span>
+                    <strong>14 Brides</strong>
+                  </div>
+                  <div class="artist-stat-row">
+                    <span>Client Rating</span>
+                    <strong class="text-gold"><i class="bi bi-star-fill"></i> 5.0 (240+ reviews)</strong>
+                  </div>
+                  <div class="artist-stat-row">
+                    <span>Specialties</span>
+                    <span class="text-muted-au small">Royal HD Bridal, Airbrush</span>
+                  </div>
+                </div>
+
+                <!-- Artist 2 -->
+                <div class="artist-card">
+                  <div class="artist-card-top">
+                    <div class="artist-avatar bg-secondary"><i class="bi bi-scissors"></i></div>
+                    <div>
+                      <div class="artist-name">Mira Patel</div>
+                      <div class="artist-role">Senior Hair & Texture Specialist</div>
+                    </div>
+                  </div>
+                  <div class="artist-stat-row">
+                    <span>Active Bookings</span>
+                    <strong>11 Brides</strong>
+                  </div>
+                  <div class="artist-stat-row">
+                    <span>Client Rating</span>
+                    <strong class="text-gold"><i class="bi bi-star-fill"></i> 4.9 (160+ reviews)</strong>
+                  </div>
+                  <div class="artist-stat-row">
+                    <span>Specialties</span>
+                    <span class="text-muted-au small">Chignons, Extensions, Draping</span>
+                  </div>
+                </div>
+
+                <!-- Artist 3 -->
+                <div class="artist-card">
+                  <div class="artist-card-top">
+                    <div class="artist-avatar bg-dark"><i class="bi bi-gem"></i></div>
+                    <div>
+                      <div class="artist-name">Zainab Al-Mansoor</div>
+                      <div class="artist-role">Editorial Makeup Artist</div>
+                    </div>
+                  </div>
+                  <div class="artist-stat-row">
+                    <span>Active Bookings</span>
+                    <strong>8 Brides</strong>
+                  </div>
+                  <div class="artist-stat-row">
+                    <span>Client Rating</span>
+                    <strong class="text-gold"><i class="bi bi-star-fill"></i> 4.9 (95+ reviews)</strong>
+                  </div>
+                  <div class="artist-stat-row">
+                    <span>Specialties</span>
+                    <span class="text-muted-au small">Soft Glam, Reception Editorial</span>
+                  </div>
+                </div>
+
+                <!-- Artist 4 -->
+                <div class="artist-card">
+                  <div class="artist-card-top">
+                    <div class="artist-avatar bg-info"><i class="bi bi-stars"></i></div>
+                    <div>
+                      <div class="artist-name">Elena Rossi</div>
+                      <div class="artist-role">Bridal & Henna Artist</div>
+                    </div>
+                  </div>
+                  <div class="artist-stat-row">
+                    <span>Active Bookings</span>
+                    <strong>5 Brides</strong>
+                  </div>
+                  <div class="artist-stat-row">
+                    <span>Client Rating</span>
+                    <strong class="text-gold"><i class="bi bi-star-fill"></i> 4.8 (80+ reviews)</strong>
+                  </div>
+                  <div class="artist-stat-row">
+                    <span>Specialties</span>
+                    <span class="text-muted-au small">Organic Henna, Skin Glow</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             PANEL 5: FINANCIALS & INVOICES
+             ============================================================ -->
+        <section class="dash-panel-view" id="panel-financials" data-panel-view="financials">
+          
+          <div class="row g-3 g-lg-4 mb-4">
+            <div class="col-md-4">
+              <div class="kpi-card">
+                <div class="kpi-label">Collected This Month</div>
+                <div class="kpi-value text-success">$42,850.00</div>
+                <span class="kpi-delta up"><i class="bi bi-arrow-up"></i> 100% on-time milestone collection</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="kpi-card">
+                <div class="kpi-label">Outstanding Balances</div>
+                <div class="kpi-value text-danger">$8,420.00</div>
+                <span class="kpi-delta">Due before wedding day dates</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="kpi-card">
+                <div class="kpi-label">Projected Next Month</div>
+                <div class="kpi-value text-heading-au">$56,100.00</div>
+                <span class="kpi-delta">Based on Q4 peak season bookings</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-au">
+            <div class="panel-head">
+              <h2><i class="bi bi-receipt-cutoff"></i> Invoices & Payment Ledger</h2>
+              <div class="panel-actions">
+                <button type="button" class="btn btn-brand btn-sm" data-bs-toggle="modal" data-bs-target="#newInvoiceModal">
+                  <i class="bi bi-plus-lg me-1"></i> Generate Invoice
+                </button>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-au">
+                <thead>
+                  <tr>
+                    <th>Invoice #</th>
+                    <th>Client Name</th>
+                    <th>Amount</th>
+                    <th>Payment Method</th>
+                    <th>Date Issued</th>
+                    <th>Status</th>
+                    <th class="text-end">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>INV-1089</strong></td>
+                    <td>Aisha Rahman</td>
+                    <td>$423.00</td>
+                    <td>Credit Card (Stripe)</td>
+                    <td>Aug 15, 2026</td>
+                    <td><span class="status-pill status-paid">Paid</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-outline-brand" onclick="alert('Downloading invoice INV-1089...')">PDF</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>INV-1090</strong></td>
+                    <td>Aisha Rahman</td>
+                    <td>$634.00</td>
+                    <td>Card (Pending)</td>
+                    <td>Sep 15, 2026</td>
+                    <td><span class="status-pill status-due">Due Oct 1</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-brand" onclick="alert('Payment reminder sent to Aisha Rahman')">Send Reminder</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>INV-1091</strong></td>
+                    <td>Camille Fontaine</td>
+                    <td>$862.50</td>
+                    <td>Bank Transfer</td>
+                    <td>Sep 10, 2026</td>
+                    <td><span class="status-pill status-paid">Paid</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-outline-brand" onclick="alert('Downloading invoice INV-1091...')">PDF</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ============================================================
+             PANEL 6: CLIENT REVIEWS
+             ============================================================ -->
+        <section class="dash-panel-view" id="panel-reviews" data-panel-view="reviews">
+          <div class="panel-au">
+            <div class="panel-head">
+              <h2><i class="bi bi-star-half"></i> Bride Testimonials & Reviews</h2>
+            </div>
+            <div class="panel-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="p-3 border rounded bg-surface-au">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <div class="fw-bold text-heading-au">Ritu Anand</div>
+                      <div class="text-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    </div>
+                    <p class="text-muted-au small mb-2">"Sixteen hours, an outdoor ceremony and a very emotional mother-of-the-bride, and the makeup did not budge. Nadia was calm, fast, and remarkably talented."</p>
+                    <div class="d-flex justify-content-between align-items-center" style="font-size:0.75rem;">
+                      <span class="badge bg-success-subtle text-success">Approved for Website</span>
+                      <span class="text-muted-au">May 18, 2026</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="p-3 border rounded bg-surface-au">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <div class="fw-bold text-heading-au">Sana Qureshi</div>
+                      <div class="text-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    </div>
+                    <p class="text-muted-au small mb-2">"The mehendi design was even more detailed than the reference photo I brought in. Elena's natural stain held deep color for three full weeks."</p>
+                    <div class="d-flex justify-content-between align-items-center" style="font-size:0.75rem;">
+                      <span class="badge bg-success-subtle text-success">Approved for Website</span>
+                      <span class="text-muted-au">Sep 08, 2026</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             PANEL 7: STUDIO SETTINGS
+             ============================================================ -->
+        <section class="dash-panel-view" id="panel-settings" data-panel-view="settings">
+          <div class="panel-au">
+            <div class="panel-head">
+              <h2><i class="bi bi-gear"></i> Atelier Studio Configuration</h2>
+            </div>
+            <div class="panel-body">
+              <form onsubmit="handleSaveSettings(event)">
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="settingStudioName">Studio Brand Name</label>
+                    <input type="text" class="form-control" id="settingStudioName" value="Aurelle Bridal Atelier">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="settingDepositPct">Required Booking Deposit (%)</label>
+                    <input type="number" class="form-control" id="settingDepositPct" value="25">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="settingHours">Studio Operating Hours</label>
+                    <input type="text" class="form-control" id="settingHours" value="Tue – Sun: 9:00 AM – 7:00 PM">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="settingNotificationEmail">Alert Notification Email</label>
+                    <input type="email" class="form-control" id="settingNotificationEmail" value="concierge@aurellebridal.com">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-brand">
+                  <i class="bi bi-check2 me-1"></i> Save Studio Settings
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- New Booking Modal -->
+  <div class="modal fade" id="newBookingModal" tabindex="-1" aria-labelledby="newBookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-display fw-bold" id="newBookingModalLabel">Create New Bridal Booking</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form onsubmit="handleCreateBookingSubmit(event)">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="newBrideName" class="form-label fw-semibold">Bride Full Name</label>
+              <input type="text" class="form-control" id="newBrideName" placeholder="e.g. Yasmin Al-Hassan" required>
+            </div>
+            <div class="mb-3">
+              <label for="newBridePhone" class="form-label fw-semibold">Contact Phone</label>
+              <input type="tel" class="form-control" id="newBridePhone" placeholder="+1 (415) 555-0190" required>
+            </div>
+            <div class="mb-3">
+              <label for="newPackageSelect" class="form-label fw-semibold">Bridal Package</label>
+              <select class="form-select" id="newPackageSelect">
+                <option value="The Bride Package ($1,690)">The Bride Package ($1,690)</option>
+                <option value="The Full Week ($3,450)">The Full Week ($3,450)</option>
+                <option value="The Trial Session ($240)">The Trial Session ($240)</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="newWeddingDate" class="form-label fw-semibold">Wedding Date</label>
+              <input type="date" class="form-control" id="newWeddingDate" value="2027-02-14" required>
+            </div>
+            <div class="mb-3">
+              <label for="newArtistSelect" class="form-label fw-semibold">Assigned Master Artist</label>
+              <select class="form-select" id="newArtistSelect">
+                <option value="Nadia Sethi">Nadia Sethi (Lead)</option>
+                <option value="Mira Patel">Mira Patel (Hair)</option>
+                <option value="Zainab Al-Mansoor">Zainab Al-Mansoor (Editorial)</option>
+                <option value="Elena Rossi">Elena Rossi (Henna)</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-brand btn-sm">Confirm Booking</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Invoice Modal -->
+  <div class="modal fade" id="newInvoiceModal" tabindex="-1" aria-labelledby="newInvoiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-display fw-bold" id="newInvoiceModalLabel">Generate Client Invoice</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form onsubmit="handleCreateInvoiceSubmit(event)">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="invClientSelect" class="form-label fw-semibold">Client</label>
+              <select class="form-select" id="invClientSelect">
+                <option value="Aisha Rahman">Aisha Rahman</option>
+                <option value="Camille Fontaine">Camille Fontaine</option>
+                <option value="Meera Chandran">Meera Chandran</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="invAmountInput" class="form-label fw-semibold">Amount ($)</label>
+              <input type="number" class="form-control" id="invAmountInput" value="634.00" step="0.01" required>
+            </div>
+            <div class="mb-3">
+              <label for="invDueDate" class="form-label fw-semibold">Payment Due Date</label>
+              <input type="date" class="form-control" id="invDueDate" value="2026-10-01" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-brand btn-sm">Generate & Send Invoice</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Customer Login — Client Portal | Aurelle Bridal Studio</title>
+  <meta name="description" content="Sign in to your Aurelle client account to view appointments, trial sessions, look references, invoices and messages with your bridal artist.">
+  <meta name="keywords" content="aurelle login, bridal client portal, wedding booking account, bridal studio sign in">
+  <meta name="author" content="Aurelle Bridal Studio">
+  <meta name="theme-color" content="#b76e79">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://aurellebridal.com/login.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aurelle Bridal Studio">
+  <meta property="og:title" content="Customer Login — Aurelle Bridal Studio">
+  <meta property="og:description" content="Access your bridal booking, appointments, invoices and messages.">
+  <meta property="og:url" content="https://aurellebridal.com/login.html">
+  <meta property="og:image" content="https://aurellebridal.com/assets/images/og-cover.jpg">
+  <meta property="og:image:alt" content="Aurelle Bridal Studio client portal sign-in">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Customer Login — Aurelle Bridal Studio">
+  <meta name="twitter:description" content="Access your bridal booking, appointments, invoices and messages.">
+  <meta name="twitter:image" content="https://aurellebridal.com/assets/images/og-cover.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Italiana&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link id="au-bs-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link id="au-rtl-css" rel="stylesheet" href="assets/css/rtl.css" disabled>
+
+  <script src="assets/js/theme-init.js"></script>
+</head>
+
+<body class="auth-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="auth-ambient-orb-1" aria-hidden="true"></div>
+  <div class="auth-ambient-orb-2" aria-hidden="true"></div>
+
+  <!-- Top Bar Controls (No Site Header) -->
+  <header class="auth-topbar">
+    <div class="d-flex align-items-center gap-2">
+      <button type="button" class="nav-tool-btn" data-theme-toggle
+              aria-pressed="false" title="Toggle dark mode" aria-label="Toggle dark mode">
+        <i class="bi bi-moon-stars" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="nav-tool-btn nav-tool-btn-text" data-dir-toggle
+              title="Toggle layout direction (LTR/RTL)" aria-label="Toggle layout direction">
+        <span data-dir-current>LTR</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Centered Login Container Section -->
+  <main class="auth-main" id="main">
+    <div class="auth-container-centered">
+      <div class="auth-card-centered">
+
+        <!-- Centered Brand Logo & Header -->
+        <div class="text-center mb-4">
+          <a class="navbar-brand-au mb-3" href="index.html">
+            <span class="brand-mark"><i class="bi bi-flower2" aria-hidden="true"></i></span>
+            <span>Aurelle<small>Bridal Atelier</small></span>
+          </a>
+          <h1>Customer Login</h1>
+          <p class="auth-sub">Log in to view appointments, trial notes, bridal looks &amp; invoices.</p>
+        </div>
+
+
+        <div id="loginError" hidden></div>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+          <div class="mb-3">
+            <label class="form-label" for="loginEmail">Email Address <span class="req" aria-hidden="true">*</span></label>
+            <div class="input-icon-group">
+              <i class="bi bi-envelope input-icon" aria-hidden="true"></i>
+              <input type="email" class="form-control" id="loginEmail" name="email" required
+                     placeholder="you@example.com" autocomplete="email">
+            </div>
+            <div class="invalid-feedback d-block" role="alert"></div>
+          </div>
+
+          <div class="mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <label class="form-label mb-0" for="loginPassword">Password <span class="req" aria-hidden="true">*</span></label>
+              <button type="button" class="btn btn-link btn-sm p-0 text-decoration-none text-gold"
+                      data-bs-toggle="modal" data-bs-target="#forgotModal">
+                Forgot password?
+              </button>
+            </div>
+            <div class="input-icon-group has-toggle mt-1">
+              <i class="bi bi-lock input-icon" aria-hidden="true"></i>
+              <input type="password" class="form-control" id="loginPassword" name="password" required
+                     minlength="6" placeholder="Enter your password" autocomplete="current-password">
+              <button type="button" class="pw-toggle" data-pw-toggle="#loginPassword"
+                      aria-label="Show password" aria-pressed="false">
+                <i class="bi bi-eye" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback d-block" role="alert"></div>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="loginRemember" name="remember" checked>
+            <label class="form-check-label small text-muted-au" for="loginRemember">Keep me signed in on this device</label>
+          </div>
+
+          <button type="submit" class="btn btn-brand btn-lg w-100">
+            <span class="btn-label"><i class="bi bi-box-arrow-in-right" aria-hidden="true"></i> Sign In to Portal</span>
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="auth-divider">or continue with</div>
+
+        <!-- Social SSO Buttons -->
+        <div class="social-auth">
+          <button type="button" class="btn" data-social-auth="google">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3.03h3.86c2.26-2.09 3.56-5.17 3.56-8.9z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3.03c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.12C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.26a7.22 7.22 0 0 1 0-4.52V6.62H1.29a12.01 12.01 0 0 0 0 10.76l3.98-3.12z"/><path fill="#EA4335" d="M12 4.78c1.76 0 3.35.6 4.6 1.79l3.42-3.42C17.94 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.12C6.22 6.89 8.87 4.78 12 4.78z"/></svg>
+            <span>Google</span>
+          </button>
+          <button type="button" class="btn" data-social-auth="facebook">
+            <i class="bi bi-facebook text-primary" aria-hidden="true"></i>
+            <span>Facebook</span>
+          </button>
+          <button type="button" class="btn" data-social-auth="apple">
+            <i class="bi bi-apple" aria-hidden="true"></i>
+            <span>Apple</span>
+          </button>
+        </div>
+
+
+        <!-- Footnote Links -->
+        <div class="auth-footnote">
+          <p class="mb-2">
+            New to Aurelle? <a href="register.html">Create an account</a>
+          </p>
+          <p class="mb-0">
+            <a href="admin-login.html" class="d-inline-flex align-items-center gap-1">
+              <i class="bi bi-shield-lock-fill text-gold" aria-hidden="true"></i> Atelier artist or stylist? Staff Admin login
+            </a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ====================================================================
+       FORGOT PASSWORD MODAL
+       ==================================================================== -->
+  <div class="modal fade" id="forgotModal" tabindex="-1" aria-labelledby="forgotModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="forgotModalLabel">Reset your password</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close dialog"></button>
+        </div>
+
+        <div class="modal-body">
+          <form id="forgotForm">
+            <p class="text-muted-au">
+              Enter the email on your booking and we will send a reset link. The link
+              expires in 30 minutes.
+            </p>
+
+            <div class="mb-3">
+              <label class="form-label" for="forgotEmail">Email Address <span class="req" aria-hidden="true">*</span></label>
+              <div class="input-icon-group">
+                <i class="bi bi-envelope input-icon" aria-hidden="true"></i>
+                <input type="email" class="form-control" id="forgotEmail" name="email" required
+                       placeholder="you@example.com" autocomplete="email">
+              </div>
+              <div class="invalid-feedback d-block" role="alert"></div>
+            </div>
+
+            <button type="submit" class="btn btn-brand w-100">
+              <span class="btn-label"><i class="bi bi-send" aria-hidden="true"></i> Send reset link</span>
+            </button>
+          </form>
+
+          <div class="form-success" id="forgotSuccess" role="status" aria-live="polite">
+            <div class="success-mark"><i class="bi bi-envelope-check" aria-hidden="true"></i></div>
+            <h3 class="h5">Check your inbox</h3>
+            <p class="text-muted-au mb-0">
+              If that email is on a booking with us, a reset link is on its way.
+              It expires in 30 minutes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

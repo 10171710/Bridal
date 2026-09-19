@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Admin &amp; Staff Portal — Atelier Administration | Aurelle Bridal Studio</title>
+  <meta name="description" content="Administrative access portal for Aurelle Bridal Atelier lead artists, stylists, and studio coordinators.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://aurellebridal.com/admin-login.html">
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Italiana&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link id="au-bs-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link id="au-rtl-css" rel="stylesheet" href="assets/css/rtl.css" disabled>
+
+  <script src="assets/js/theme-init.js"></script>
+</head>
+
+<body class="auth-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="auth-ambient-orb-1" aria-hidden="true" style="background: radial-gradient(circle, rgb(201 162 39 / 0.18), transparent 70%);"></div>
+  <div class="auth-ambient-orb-2" aria-hidden="true" style="background: radial-gradient(circle, rgb(183 110 121 / 0.16), transparent 70%);"></div>
+
+  <!-- Top Bar Controls (No Site Header) -->
+  <header class="auth-topbar">
+    <div class="d-flex align-items-center gap-2">
+      <button type="button" class="nav-tool-btn" data-theme-toggle
+              aria-pressed="false" title="Toggle dark mode" aria-label="Toggle dark mode">
+        <i class="bi bi-moon-stars" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="nav-tool-btn nav-tool-btn-text" data-dir-toggle
+              title="Toggle layout direction (LTR/RTL)" aria-label="Toggle layout direction">
+        <span data-dir-current>LTR</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Centered Login Container Section -->
+  <main class="auth-main" id="main">
+    <div class="auth-container-centered">
+      <div class="auth-card-centered" style="border-color: var(--au-gold-light);">
+
+        <!-- Centered Brand Logo & Header -->
+        <div class="text-center mb-3">
+          <a class="navbar-brand-au mb-3" href="index.html">
+            <span class="brand-mark" style="background: linear-gradient(135deg, var(--au-gold), var(--au-rose));">
+              <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
+            </span>
+            <span>Aurelle<small>Bridal Atelier</small></span>
+          </a>
+          <h1 id="adminHeaderTitle">Admin &amp; Staff Portal</h1>
+          <p class="auth-sub" id="adminHeaderSub">Restricted administrative access for lead artists and studio coordinators.</p>
+        </div>
+
+        <!-- Segmented Tab Switcher inside Admin Container -->
+        <div class="auth-tabs" role="tablist">
+          <button type="button" class="auth-tab-btn active" id="tabAdminLoginBtn" data-admin-tab="login">
+            <i class="bi bi-box-arrow-in-right" aria-hidden="true"></i> Staff Sign In
+          </button>
+          <button type="button" class="auth-tab-btn" id="tabAdminRegisterBtn" data-admin-tab="register">
+            <i class="bi bi-person-plus-fill" aria-hidden="true"></i> Create Admin Account
+          </button>
+        </div>
+
+        <div id="loginError" hidden></div>
+
+        <!-- ================================================================
+             1. ADMIN SIGN IN FORM
+             ================================================================ -->
+        <form id="adminLoginForm">
+          <input type="hidden" name="role" value="admin">
+
+          <div class="mb-3">
+            <label class="form-label" for="adminEmail">Staff Email Address <span class="req" aria-hidden="true">*</span></label>
+            <div class="input-icon-group">
+              <i class="bi bi-envelope-at input-icon" aria-hidden="true"></i>
+              <input type="email" class="form-control" id="adminEmail" name="email" required
+                     placeholder="admin@aurelle.com" autocomplete="email">
+            </div>
+            <div class="invalid-feedback d-block" role="alert"></div>
+          </div>
+
+          <div class="mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <label class="form-label mb-0" for="adminPassword">Master Password <span class="req" aria-hidden="true">*</span></label>
+              <button type="button" class="btn btn-link btn-sm p-0 text-decoration-none text-gold"
+                      data-bs-toggle="modal" data-bs-target="#forgotModal">
+                Forgot password?
+              </button>
+            </div>
+            <div class="input-icon-group has-toggle mt-1">
+              <i class="bi bi-shield-lock input-icon" aria-hidden="true"></i>
+              <input type="password" class="form-control" id="adminPassword" name="password" required
+                     minlength="6" placeholder="Enter administrative password" autocomplete="current-password">
+              <button type="button" class="pw-toggle" data-pw-toggle="#adminPassword"
+                      aria-label="Show password" aria-pressed="false">
+                <i class="bi bi-eye" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback d-block" role="alert"></div>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="adminRemember" name="remember" checked>
+            <label class="form-check-label small text-muted-au" for="adminRemember">Trust this administrative workstation</label>
+          </div>
+
+          <button type="submit" class="btn btn-brand btn-lg w-100" style="background:linear-gradient(135deg, var(--au-gold), var(--au-rose)); border:none;">
+            <span class="btn-label"><i class="bi bi-shield-check" aria-hidden="true"></i> Sign In to Admin Portal</span>
+          </button>
+        </form>
+
+        <!-- ================================================================
+             2. CREATE ADMIN ACCOUNT FORM
+             ================================================================ -->
+        <form id="adminRegisterForm" hidden>
+          <input type="hidden" name="role" value="admin">
+
+          <div class="mb-3">
+            <label class="form-label" for="adminRegName">Full Name / Artist Title <span class="req" aria-hidden="true">*</span></label>
+            <div class="input-icon-group">
+              <i class="bi bi-person-badge input-icon" aria-hidden="true"></i>
+              <input type="text" class="form-control" id="adminRegName" name="name" required
+                     placeholder="Nadia Sethi — Lead Artist" autocomplete="name">
+            </div>
+            <div class="invalid-feedback d-block" role="alert"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="adminRegEmail">Staff Email Address <span class="req" aria-hidden="true">*</span></label>
+            <div class="input-icon-group">
+              <i class="bi bi-envelope-at input-icon" aria-hidden="true"></i>
+              <input type="email" class="form-control" id="adminRegEmail" name="email" required
+                     placeholder="artist@aurelle.com" autocomplete="email">
+            </div>
+            <div class="invalid-feedback d-block" role="alert"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="adminRegPasskey">Studio Passcode <span class="text-muted-au fw-normal">(Optional Atelier Passkey)</span></label>
+            <div class="input-icon-group">
+              <i class="bi bi-key input-icon" aria-hidden="true"></i>
+              <input type="password" class="form-control" id="adminRegPasskey" name="passkey"
+                     placeholder="Enter studio passkey if issued" autocomplete="off">
+            </div>
+            <div class="invalid-feedback d-block" role="alert"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="adminRegPassword">Create Password <span class="req" aria-hidden="true">*</span></label>
+            <div class="input-icon-group has-toggle">
+              <i class="bi bi-shield-lock input-icon" aria-hidden="true"></i>
+              <input type="password" class="form-control" id="adminRegPassword" name="password" required
+                     minlength="6" placeholder="At least 6 characters" autocomplete="new-password">
+              <button type="button" class="pw-toggle" data-pw-toggle="#adminRegPassword"
+                      aria-label="Show password" aria-pressed="false">
+                <i class="bi bi-eye" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback d-block" role="alert"></div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" for="adminRegConfirm">Confirm Password <span class="req" aria-hidden="true">*</span></label>
+            <div class="input-icon-group has-toggle">
+              <i class="bi bi-shield-check input-icon" aria-hidden="true"></i>
+              <input type="password" class="form-control" id="adminRegConfirm" name="confirmPassword" required
+                     minlength="6" data-match="#adminRegPassword" placeholder="Re-enter password" autocomplete="new-password">
+              <button type="button" class="pw-toggle" data-pw-toggle="#adminRegConfirm"
+                      aria-label="Show password" aria-pressed="false">
+                <i class="bi bi-eye" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback d-block" role="alert"></div>
+          </div>
+
+          <button type="submit" class="btn btn-brand btn-lg w-100" style="background:linear-gradient(135deg, var(--au-gold), var(--au-rose)); border:none;">
+            <span class="btn-label"><i class="bi bi-person-check-fill" aria-hidden="true"></i> Create &amp; Activate Admin Account</span>
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="auth-divider">or continue with</div>
+
+        <!-- Social SSO Buttons -->
+        <div class="social-auth">
+          <button type="button" class="btn" data-social-auth="google">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3.03h3.86c2.26-2.09 3.56-5.17 3.56-8.9z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3.03c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.12C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.26a7.22 7.22 0 0 1 0-4.52V6.62H1.29a12.01 12.01 0 0 0 0 10.76l3.98-3.12z"/><path fill="#EA4335" d="M12 4.78c1.76 0 3.35.6 4.6 1.79l3.42-3.42C17.94 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.12C6.22 6.89 8.87 4.78 12 4.78z"/></svg>
+            <span>Google</span>
+          </button>
+          <button type="button" class="btn" data-social-auth="facebook">
+            <i class="bi bi-facebook text-primary" aria-hidden="true"></i>
+            <span>Facebook</span>
+          </button>
+          <button type="button" class="btn" data-social-auth="apple">
+            <i class="bi bi-apple" aria-hidden="true"></i>
+            <span>Apple</span>
+          </button>
+        </div>
+
+        <!-- Footnote Links -->
+        <div class="auth-footnote">
+          <p class="mb-2">
+            <a href="login.html" class="d-inline-flex align-items-center gap-1">
+              <i class="bi bi-person-circle" aria-hidden="true"></i> Looking for bridal client login? Customer portal
+            </a>
+          </p>
+          <p class="mb-0 text-muted-au small">
+            Need studio support? Contact <a href="mailto:studio@aurellebridal.com">studio@aurellebridal.com</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ====================================================================
+       FORGOT PASSWORD MODAL
+       ==================================================================== -->
+  <div class="modal fade" id="forgotModal" tabindex="-1" aria-labelledby="forgotModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="forgotModalLabel">Staff Password Recovery</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close dialog"></button>
+        </div>
+
+        <div class="modal-body">
+          <form id="forgotForm">
+            <p class="text-muted-au">
+              Enter your registered staff email address to receive a secure password reset link.
+            </p>
+
+            <div class="mb-3">
+              <label class="form-label" for="forgotEmail">Staff Email <span class="req" aria-hidden="true">*</span></label>
+              <div class="input-icon-group">
+                <i class="bi bi-envelope input-icon" aria-hidden="true"></i>
+                <input type="email" class="form-control" id="forgotEmail" name="email" required
+                       placeholder="admin@aurelle.com" autocomplete="email">
+              </div>
+              <div class="invalid-feedback d-block" role="alert"></div>
+            </div>
+
+            <button type="submit" class="btn btn-brand w-100">
+              <span class="btn-label"><i class="bi bi-send" aria-hidden="true"></i> Send Reset Link</span>
+            </button>
+          </form>
+
+          <div class="form-success" id="forgotSuccess" role="status" aria-live="polite">
+            <div class="success-mark"><i class="bi bi-envelope-check" aria-hidden="true"></i></div>
+            <h3 class="h5">Reset Instructions Dispatched</h3>
+            <p class="text-muted-au mb-0">
+              Check your inbox for a secure token to reset your administrative credentials.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

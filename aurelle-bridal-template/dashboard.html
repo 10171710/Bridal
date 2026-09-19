@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Customer Dashboard — Aurelle Bridal Atelier</title>
+  <meta name="description" content="Private client portal for Aisha Rahman with Aurelle Bridal Atelier — manage wedding appointments, bridal moodboard, payment plans, and direct messaging with your lead artist.">
+  <meta name="keywords" content="Aurelle bridal dashboard, bride portal, wedding makeup appointment, bridal styling schedule">
+  <meta name="author" content="Aurelle Bridal Studio">
+  <meta name="theme-color" content="#b76e79">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://aurellebridal.com/dashboard.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aurelle Bridal Atelier">
+  <meta property="og:title" content="Bride Dashboard — Aurelle Bridal Atelier">
+  <meta property="og:description" content="Private portal for managing your luxury bridal journey with Aurelle.">
+  <meta property="og:url" content="https://aurellebridal.com/dashboard.html">
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Italiana&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link id="au-bs-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link id="au-rtl-css" rel="stylesheet" href="assets/css/rtl.css" disabled>
+
+  <script src="assets/js/theme-init.js"></script>
+</head>
+
+<body class="dash-body">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="dash-shell">
+
+    <!-- ==================================================================
+         SIDEBAR
+         ================================================================== -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <a class="dash-brand" href="index.html">
+        <span class="brand-mark"><i class="bi bi-flower2" aria-hidden="true"></i></span>
+        <span class="brand-text">Aurelle<small>Bridal Atelier</small></span>
+      </a>
+
+      <div class="dash-user">
+        <div class="dash-user-avatar" role="img" aria-label="User avatar">
+          <span data-user-avatar-initials>AR</span>
+        </div>
+        <div class="min-w-0">
+          <div class="du-name text-truncate" data-session-name>Aisha Rahman</div>
+          <div class="du-role" data-session-role-line>Bride · Nov 14, 2026</div>
+        </div>
+      </div>
+
+      <nav class="dash-nav" aria-label="Customer Dashboard navigation">
+        <div class="dash-nav-label">Bridal Suite</div>
+        <button type="button" class="dash-nav-link is-active" data-panel="overview" aria-current="page">
+          <i class="bi bi-grid-1x2" aria-hidden="true"></i> <span>Overview</span>
+        </button>
+        <button type="button" class="dash-nav-link" data-panel="appointments">
+          <i class="bi bi-calendar2-heart" aria-hidden="true"></i> <span>Appointments</span> <span class="nav-count" data-appt-count>3</span>
+        </button>
+        <button type="button" class="dash-nav-link" data-panel="looks">
+          <i class="bi bi-images" aria-hidden="true"></i> <span>Bridal Moodboard</span> <span class="nav-count" data-look-count>4</span>
+        </button>
+
+        <div class="dash-nav-label">Account & Billing</div>
+        <button type="button" class="dash-nav-link" data-panel="payments">
+          <i class="bi bi-credit-card-2-front" aria-hidden="true"></i> <span>Payments & Invoices</span> <span class="nav-count" data-invoice-count>2</span>
+        </button>
+        <button type="button" class="dash-nav-link" data-panel="messages">
+          <i class="bi bi-chat-heart" aria-hidden="true"></i> <span>Artist Messages</span> <span class="nav-count" data-msg-count>2</span>
+        </button>
+        <button type="button" class="dash-nav-link" data-panel="profile">
+          <i class="bi bi-person-lines-fill" aria-hidden="true"></i> <span>Bridal Profile</span>
+        </button>
+        <button type="button" class="dash-nav-link" data-panel="notifications">
+          <i class="bi bi-bell" aria-hidden="true"></i> <span>Notifications</span> <span class="nav-count" data-notif-count>3</span>
+        </button>
+      </nav>
+
+      <div class="dash-sidebar-foot">
+        <button type="button" class="btn btn-ghost-light btn-sm w-100 d-flex align-items-center justify-content-center gap-2" data-logout>
+          <i class="bi bi-box-arrow-right" aria-hidden="true"></i> Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <div class="dash-backdrop" data-dash-backdrop></div>
+
+    <!-- ==================================================================
+         MAIN AREA
+         ================================================================== -->
+    <div class="dash-main">
+      <header class="dash-topbar">
+        <button type="button" class="dash-sidebar-toggle btn-icon btn-soft" data-dash-sidebar-toggle aria-label="Open navigation menu" aria-expanded="false" aria-controls="dashSidebar">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+
+        <div>
+          <h1 data-panel-title>Bridal Overview</h1>
+          <p class="dt-sub" data-panel-sub>Welcome back, Aisha — your wedding journey with Nadia Sethi.</p>
+        </div>
+
+        <div class="dash-topbar-actions">
+          <div class="dash-search d-none d-md-block">
+            <i class="bi bi-search" aria-hidden="true"></i>
+            <input type="search" class="form-control" id="dashSearch" placeholder="Search appointments, invoices…" aria-label="Search dashboard">
+          </div>
+
+          <button type="button" class="nav-tool-btn" data-theme-toggle aria-pressed="false" title="Toggle dark mode" aria-label="Toggle dark mode">
+            <i class="bi bi-moon-stars" aria-hidden="true"></i>
+          </button>
+
+          <button type="button" class="nav-tool-btn nav-tool-btn-text" data-dir-toggle title="Toggle layout direction (LTR/RTL)" aria-label="Toggle layout direction">
+            <span data-dir-current>LTR</span>
+          </button>
+
+          <!-- Notifications Dropdown -->
+          <div class="dropdown">
+            <button type="button" class="nav-tool-btn dash-bell dropdown-toggle" id="notifDrop" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications, 3 unread">
+              <i class="bi bi-bell" aria-hidden="true"></i>
+              <span class="dot" data-bell-dot></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end dropdown-notif" aria-labelledby="notifDrop">
+              <div class="p-3 border-bottom d-flex justify-content-between align-items-center">
+                <span class="fw-semibold text-heading-au">Notifications</span>
+                <button type="button" class="btn btn-sm btn-link text-decoration-none p-0 text-brand" data-mark-all-read>Mark all read</button>
+              </div>
+              <div class="notif-item is-unread">
+                <div class="notif-icon"><i class="bi bi-calendar-check" aria-hidden="true"></i></div>
+                <div>
+                  <div class="notif-title">Trial Session Confirmed</div>
+                  <div class="notif-text">Hair & Makeup trial set for Oct 3, 2:00 PM at Aurelle Studio.</div>
+                </div>
+                <span class="notif-time">2h ago</span>
+              </div>
+              <div class="notif-item is-unread">
+                <div class="notif-icon"><i class="bi bi-receipt" aria-hidden="true"></i></div>
+                <div>
+                  <div class="notif-title">Invoice INV-1090 Ready</div>
+                  <div class="notif-text">Second installment for trial milestone is now viewable.</div>
+                </div>
+                <span class="notif-time">1d ago</span>
+              </div>
+              <div class="notif-item is-unread">
+                <div class="notif-icon"><i class="bi bi-chat-dots" aria-hidden="true"></i></div>
+                <div>
+                  <div class="notif-title">Message from Nadia Sethi</div>
+                  <div class="notif-text">"I added two dupatta drape references to your moodboard."</div>
+                </div>
+                <span class="notif-time">2d ago</span>
+              </div>
+              <div class="p-2 border-top text-center">
+                <button type="button" class="btn btn-sm btn-ghost-brand w-100" data-panel="notifications">View All Notifications</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Pill -->
+          <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-soft d-flex align-items-center gap-2 dropdown-toggle rounded-pill px-2 py-1" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="dash-user-avatar" style="width:28px;height:28px;font-size:0.75rem;" data-user-avatar-initials>AR</span>
+              <span class="d-none d-lg-inline fw-medium text-heading-au" data-session-first-name>Aisha</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+              <li><button class="dropdown-item" type="button" data-panel="profile"><i class="bi bi-person me-2"></i> Bridal Profile</button></li>
+              <li><button class="dropdown-item" type="button" data-panel="payments"><i class="bi bi-receipt me-2"></i> Invoices</button></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><button class="dropdown-item text-danger" type="button" data-logout><i class="bi bi-box-arrow-right me-2"></i> Sign Out</button></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <main id="main" class="dash-content">
+
+        <!-- ============================================================
+             PANEL 1: OVERVIEW
+             ============================================================ -->
+        <section class="dash-panel-view is-active" id="panel-overview" data-panel-view="overview">
+          
+          <!-- Wedding Countdown Hero Banner -->
+          <div class="countdown-banner">
+            <div class="banner-sub"><i class="bi bi-stars me-1" aria-hidden="true"></i> <span data-session-hero-title>Aisha &amp; Farhan's Big Day</span></div>
+            <h2>Saturday, November 14, 2026</h2>
+            <p>Your bridal styling team led by Master Artist Nadia Sethi is preparing every bespoke detail for your sacred celebration.</p>
+            <div class="countdown-timer" id="weddingCountdown">
+              <div class="countdown-unit">
+                <strong id="cdDays">58</strong>
+                <span>Days</span>
+              </div>
+              <div class="countdown-unit">
+                <strong id="cdHours">14</strong>
+                <span>Hours</span>
+              </div>
+              <div class="countdown-unit">
+                <strong id="cdMins">22</strong>
+                <span>Minutes</span>
+              </div>
+              <div class="countdown-unit">
+                <strong id="cdSecs">45</strong>
+                <span>Seconds</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bridal Journey Milestones -->
+          <div class="journey-stepper">
+            <div class="journey-step is-done">
+              <div class="step-header">
+                <span class="step-num"><i class="bi bi-check-lg" aria-hidden="true"></i></span>
+                <span class="badge bg-success-subtle text-success border">Completed</span>
+              </div>
+              <div class="step-title">1. Initial Vision & Booking</div>
+              <div class="step-meta">Aug 15, 2026 · The Bride Package</div>
+            </div>
+            <div class="journey-step is-current">
+              <div class="step-header">
+                <span class="step-num">2</span>
+                <span class="badge bg-danger-subtle text-danger border">Upcoming</span>
+              </div>
+              <div class="step-title">2. Hair & Makeup Trial</div>
+              <div class="step-meta">Oct 3, 2026 · 2:00 PM at Studio</div>
+            </div>
+            <div class="journey-step">
+              <div class="step-header">
+                <span class="step-num">3</span>
+                <span class="badge bg-secondary-subtle text-muted border">Pending</span>
+              </div>
+              <div class="step-title">3. Final Look & Veil Prep</div>
+              <div class="step-meta">Oct 20, 2026 · Look Lock-in</div>
+            </div>
+            <div class="journey-step">
+              <div class="step-header">
+                <span class="step-num">4</span>
+                <span class="badge bg-secondary-subtle text-muted border">Wedding Day</span>
+              </div>
+              <div class="step-title">4. Wedding Day Artistry</div>
+              <div class="step-meta">Nov 14, 2026 · Fairmont Hotel</div>
+            </div>
+          </div>
+
+          <!-- KPI Summary Cards -->
+          <div class="row g-3 g-lg-4 mb-4">
+            <div class="col-6 col-lg-3">
+              <div class="kpi-card">
+                <div class="kpi-top">
+                  <div>
+                    <div class="kpi-label">Next Session</div>
+                    <div class="kpi-value">18 <small class="fs-6 fw-normal text-muted-au">days</small></div>
+                  </div>
+                  <div class="kpi-icon"><i class="bi bi-calendar2-heart" aria-hidden="true"></i></div>
+                </div>
+                <span class="kpi-delta">Trial Makeup · Oct 3, 2:00 PM</span>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="kpi-card">
+                <div class="kpi-top">
+                  <div>
+                    <div class="kpi-label">Booking Status</div>
+                    <div class="kpi-value fs-3 text-success">Confirmed</div>
+                  </div>
+                  <div class="kpi-icon tone-green"><i class="bi bi-patch-check" aria-hidden="true"></i></div>
+                </div>
+                <span class="kpi-delta">Lead: Nadia Sethi</span>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="kpi-card">
+                <div class="kpi-top">
+                  <div>
+                    <div class="kpi-label">Balance Due</div>
+                    <div class="kpi-value">$1,267</div>
+                  </div>
+                  <div class="kpi-icon tone-gold"><i class="bi bi-credit-card" aria-hidden="true"></i></div>
+                </div>
+                <span class="kpi-delta"><i class="bi bi-check2 text-success"></i> $423 Deposit Paid</span>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="kpi-card">
+                <div class="kpi-top">
+                  <div>
+                    <div class="kpi-label">Artist Notes</div>
+                    <div class="kpi-value">2 <small class="fs-6 fw-normal text-muted-au">new</small></div>
+                  </div>
+                  <div class="kpi-icon tone-purple"><i class="bi bi-chat-dots" aria-hidden="true"></i></div>
+                </div>
+                <span class="kpi-delta">Nadia updated moodboard</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Appointment & Shortlist Preview -->
+          <div class="row g-3 g-lg-4 mb-4">
+            <div class="col-lg-6">
+              <div class="panel-au">
+                <div class="panel-head">
+                  <h2><i class="bi bi-calendar-event"></i> Upcoming Bridal Session</h2>
+                  <div class="panel-actions">
+                    <button type="button" class="btn btn-sm btn-outline-brand" data-panel="appointments">All Sessions</button>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="appt-card mb-3">
+                    <div class="appt-date">
+                      <strong>03</strong>
+                      <span>OCT 2026</span>
+                    </div>
+                    <div class="appt-body">
+                      <h4>Bridal Hair & Makeup Preview Trial</h4>
+                      <div class="appt-meta">
+                        <span><i class="bi bi-clock"></i> 2:00 PM – 5:00 PM (3 hrs)</span>
+                        <span><i class="bi bi-person-badge"></i> Lead Artist: Nadia Sethi</span>
+                        <span><i class="bi bi-geo-alt"></i> Aurelle Studio — 24 Rosewood Ln, SF</span>
+                      </div>
+                      <p class="text-muted-au small mb-3">Complete trial of HD airbrush base, eye makeup choices, dupatta setting, and hair accessory placement.</p>
+                      <div class="appt-actions">
+                        <button type="button" class="btn btn-brand btn-sm" data-bs-toggle="modal" data-bs-target="#rescheduleModal">
+                          <i class="bi bi-clock-history me-1"></i> Reschedule Request
+                        </button>
+                        <a href="https://maps.google.com/?q=24+Rosewood+Lane+San+Francisco+CA" target="_blank" rel="noopener noreferrer" class="btn btn-outline-brand btn-sm">
+                          <i class="bi bi-compass me-1"></i> Get Directions
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="panel-au">
+                <div class="panel-head">
+                  <h2><i class="bi bi-palette"></i> Shortlisted Bridal Looks</h2>
+                  <div class="panel-actions">
+                    <button type="button" class="btn btn-sm btn-outline-brand" data-panel="looks">View Moodboard</button>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="row g-3">
+                    <div class="col-6">
+                      <div class="moodboard-card">
+                        <div class="moodboard-media">
+                          <div class="ph ph-bride ph-4x3 has-img"><img src="https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=400&q=80" alt="Dewy Royal Gold bridal makeup" loading="lazy"></div>
+                          <span class="moodboard-tag">Ceremony</span>
+                        </div>
+                        <div class="p-2">
+                          <div class="fw-semibold text-heading-au small">Dewy Royal Gold</div>
+                          <div class="text-muted-au" style="font-size:0.75rem;">Soft glam with copper foil eye accent</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="moodboard-card">
+                        <div class="moodboard-media">
+                          <div class="ph ph-bride ph-4x3 has-img"><img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=400&q=80" alt="Textured Romantic Chignon hair" loading="lazy"></div>
+                          <span class="moodboard-tag">Hair</span>
+                        </div>
+                        <div class="p-2">
+                          <div class="fw-semibold text-heading-au small">Textured Romantic Chignon</div>
+                          <div class="text-muted-au" style="font-size:0.75rem;">With fresh baby's breath & pearls</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons Row -->
+          <div class="row g-3">
+            <div class="col-sm-6 col-lg-3">
+              <a href="#" class="quick-action-card" data-panel="looks" data-open-upload>
+                <div class="quick-action-icon"><i class="bi bi-cloud-arrow-up"></i></div>
+                <div>
+                  <div class="quick-action-title">Upload Reference</div>
+                  <div class="quick-action-sub">Add dress & jewelry photos</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <a href="#" class="quick-action-card" data-panel="messages">
+                <div class="quick-action-icon"><i class="bi bi-chat-heart"></i></div>
+                <div>
+                  <div class="quick-action-title">Message Nadia</div>
+                  <div class="quick-action-sub">Direct artist inquiry</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <a href="#" class="quick-action-card" data-panel="payments">
+                <div class="quick-action-icon"><i class="bi bi-credit-card-2-back"></i></div>
+                <div>
+                  <div class="quick-action-title">Pay Balance</div>
+                  <div class="quick-action-sub">Manage installments</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <a href="#" class="quick-action-card" data-panel="profile">
+                <div class="quick-action-icon"><i class="bi bi-sliders"></i></div>
+                <div>
+                  <div class="quick-action-title">Skin Preferences</div>
+                  <div class="quick-action-sub">Update sensitivity & tones</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ============================================================
+             PANEL 2: APPOINTMENTS
+             ============================================================ -->
+        <section class="dash-panel-view" id="panel-appointments" data-panel-view="appointments">
+          <div class="panel-au mb-4">
+            <div class="panel-head">
+              <h2><i class="bi bi-calendar2-check"></i> Your Bridal Sessions Schedule</h2>
+              <div class="panel-actions">
+                <button type="button" class="btn btn-brand btn-sm" data-bs-toggle="modal" data-bs-target="#requestSessionModal">
+                  <i class="bi bi-plus-lg me-1"></i> Request Add-on Session
+                </button>
+              </div>
+            </div>
+            <div class="panel-body">
+              
+              <!-- Session 1: Upcoming Trial -->
+              <div class="appt-card mb-4 border-start border-4 border-rose">
+                <div class="appt-date">
+                  <strong>03</strong>
+                  <span>OCT 2026</span>
+                </div>
+                <div class="appt-body">
+                  <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-2">
+                    <h4 class="mb-0">Bridal Hair & Makeup Preview Trial</h4>
+                    <span class="status-pill status-confirmed">Confirmed</span>
+                  </div>
+                  <div class="appt-meta">
+                    <span><i class="bi bi-clock"></i> Saturday, 2:00 PM – 5:00 PM</span>
+                    <span><i class="bi bi-person-badge"></i> Lead Artist: Nadia Sethi</span>
+                    <span><i class="bi bi-geo-alt"></i> Aurelle Atelier — Suite 300, 24 Rosewood Ln</span>
+                  </div>
+                  <p class="text-muted-au small">Trial session includes two comprehensive look variations, lash selection, veil placement test, and detailed photograph documentation under studio and natural lighting.</p>
+                  <div class="appt-actions">
+                    <button type="button" class="btn btn-brand btn-sm" data-bs-toggle="modal" data-bs-target="#rescheduleModal">
+                      <i class="bi bi-clock-history me-1"></i> Reschedule
+                    </button>
+                    <a href="https://maps.google.com/?q=24+Rosewood+Lane+San+Francisco+CA" target="_blank" rel="noopener noreferrer" class="btn btn-outline-brand btn-sm">
+                      <i class="bi bi-map me-1"></i> Directions
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Session 2: Wedding Day -->
+              <div class="appt-card mb-4 border-start border-4 border-rose">
+                <div class="appt-date bg-gold-subtle text-dark">
+                  <strong>14</strong>
+                  <span>NOV 2026</span>
+                </div>
+                <div class="appt-body">
+                  <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-2">
+                    <h4 class="mb-0">Wedding Day Ceremony & Reception Artistry</h4>
+                    <span class="status-pill status-confirmed">Confirmed</span>
+                  </div>
+                  <div class="appt-meta">
+                    <span><i class="bi bi-clock"></i> Saturday, 8:00 AM – 1:30 PM (Morning Ceremony) & 5:00 PM (Reception Touch-up)</span>
+                    <span><i class="bi bi-person-badge"></i> Nadia Sethi + 1 Senior Artist</span>
+                    <span><i class="bi bi-building"></i> The Fairmont Hotel — Bridal Presidential Suite</span>
+                  </div>
+                  <p class="text-muted-au small">Full bridal glam, luxury skin prep, jewelry and dupatta anchoring, body glow, and full bridal emergency touch-up kit.</p>
+                  <div class="appt-actions">
+                    <button type="button" class="btn btn-outline-brand btn-sm" data-panel="messages">
+                      <i class="bi bi-chat-dots me-1"></i> Message Artist
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Session 3: Completed Consultation -->
+              <div class="appt-card opacity-75">
+                <div class="appt-date bg-light text-muted">
+                  <strong>15</strong>
+                  <span>AUG 2026</span>
+                </div>
+                <div class="appt-body">
+                  <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-2">
+                    <h4 class="mb-0">Initial Bridal Vision Consultation</h4>
+                    <span class="status-pill status-completed">Completed</span>
+                  </div>
+                  <div class="appt-meta">
+                    <span><i class="bi bi-clock"></i> 45 mins · Video & Atelier Review</span>
+                    <span><i class="bi bi-person-badge"></i> Nadia Sethi</span>
+                  </div>
+                  <p class="text-muted-au small mb-0">Reviewed ceremony themes, outfit swatches, skin history, and established "The Bride" signature package.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             PANEL 3: BRIDAL MOODBOARD
+             ============================================================ -->
+        <section class="dash-panel-view" id="panel-looks" data-panel-view="looks">
+          <div class="panel-au mb-4">
+            <div class="panel-head">
+              <h2><i class="bi bi-images"></i> Your Curated Look References</h2>
+              <div class="panel-actions">
+                <button type="button" class="btn btn-brand btn-sm" data-bs-toggle="modal" data-bs-target="#uploadLookModal">
+                  <i class="bi bi-cloud-upload me-1"></i> Upload New Inspiration
+                </button>
+              </div>
+            </div>
+            <div class="panel-body">
+              <p class="text-muted-au small mb-4">These references are shared with Nadia Sethi to design your customized trial looks. You can add notes, tag styling aspects, or upload photos of your lehenga and jewelry.</p>
+              
+              <div class="moodboard-grid">
+                
+                <!-- Look 1 -->
+                <div class="moodboard-card">
+                  <div class="moodboard-media">
+                    <div class="ph ph-bride ph-4x3 has-img"><img src="https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=600&q=85" alt="Dewy Royal Gold Glam" loading="lazy"></div>
+                    <span class="moodboard-tag">Ceremony</span>
+                    <button type="button" class="moodboard-fav" aria-label="Favorite look"><i class="bi bi-heart-fill"></i></button>
+                  </div>
+                  <div class="moodboard-body">
+                    <div class="moodboard-title">Dewy Royal Gold Glam</div>
+                    <div class="moodboard-note">Soft golden shimmer on lids, defined winged liner, peachy-nude velvet lips.</div>
+                    <div class="moodboard-artist-note">
+                      <strong>Nadia's Note:</strong> "Will pair flawlessly with your crimson raw silk lehenga."
+                    </div>
+                    <div class="moodboard-foot">
+                      <span>Added by Aisha</span>
+                      <span>Aug 22</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Look 2 -->
+                <div class="moodboard-card">
+                  <div class="moodboard-media">
+                    <div class="ph ph-bride ph-4x3 has-img"><img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=600&q=85" alt="Textured Romantic Chignon" loading="lazy"></div>
+                    <span class="moodboard-tag">Hair</span>
+                    <button type="button" class="moodboard-fav" aria-label="Favorite look"><i class="bi bi-heart-fill"></i></button>
+                  </div>
+                  <div class="moodboard-body">
+                    <div class="moodboard-title">Textured Romantic Chignon</div>
+                    <div class="moodboard-note">Low twisted bun with delicate tendrils framing the face and baby's breath.</div>
+                    <div class="moodboard-artist-note">
+                      <strong>Nadia's Note:</strong> "Ideal for double dupatta pinning without pulling."
+                    </div>
+                    <div class="moodboard-foot">
+                      <span>Added by Nadia</span>
+                      <span>Sep 02</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Look 3 -->
+                <div class="moodboard-card">
+                  <div class="moodboard-media">
+                    <div class="ph ph-bride ph-4x3 has-img"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=85" alt="Fresh Bohemian Waves" loading="lazy"></div>
+                    <span class="moodboard-tag">Mehndi</span>
+                    <button type="button" class="moodboard-fav" aria-label="Favorite look"><i class="bi bi-heart"></i></button>
+                  </div>
+                  <div class="moodboard-body">
+                    <div class="moodboard-title">Fresh Bohemian Waves</div>
+                    <div class="moodboard-note">Glossy hydrated skin, soft coral blush, and flowing half-up floral braid.</div>
+                    <div class="moodboard-artist-note">
+                      <strong>Nadia's Note:</strong> "Great relaxed vibe for the sangeet night."
+                    </div>
+                    <div class="moodboard-foot">
+                      <span>Added by Aisha</span>
+                      <span>Sep 08</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Look 4 -->
+                <div class="moodboard-card">
+                  <div class="moodboard-media">
+                    <div class="ph ph-bride ph-4x3 has-img"><img src="https://images.unsplash.com/photo-1503185912284-5271ff81b9a8?auto=format&fit=crop&w=600&q=85" alt="Smoky Bronze Editorial" loading="lazy"></div>
+                    <span class="moodboard-tag">Reception</span>
+                    <button type="button" class="moodboard-fav" aria-label="Favorite look"><i class="bi bi-heart-fill"></i></button>
+                  </div>
+                  <div class="moodboard-body">
+                    <div class="moodboard-title">Smoky Bronze Editorial</div>
+                    <div class="moodboard-note">Luminous glass skin with deep bronze smoky eyes and high-gloss nude lip.</div>
+                    <div class="moodboard-artist-note">
+                      <strong>Nadia's Note:</strong> "Quick 25-minute transition from ceremony look."
+                    </div>
+                    <div class="moodboard-foot">
+                      <span>Added by Nadia</span>
+                      <span>Sep 12</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             PANEL 4: PAYMENTS & INVOICES
+             ============================================================ -->
+        <section class="dash-panel-view" id="panel-payments" data-panel-view="payments">
+          
+          <!-- Payment Plan Summary Box -->
+          <div class="payment-summary-box">
+            <div class="row align-items-center">
+              <div class="col-md-7">
+                <span class="badge bg-danger-subtle text-danger border mb-2">Package: The Bride</span>
+                <h3 class="font-display fw-bold mb-1">Total Bridal Investment: $1,690.00</h3>
+                <p class="text-muted-au small mb-0">Includes full consultation, 3-hour trial, wedding day ceremony artistry, reception look change, touch-up kit, and travel within SF Bay Area.</p>
+              </div>
+              <div class="col-md-5 text-md-end mt-3 mt-md-0">
+                <button type="button" class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#payBalanceModal">
+                  <i class="bi bi-credit-card me-1"></i> Make a Payment
+                </button>
+              </div>
+            </div>
+
+            <div class="payment-progress-bar">
+              <div class="payment-progress-fill" style="width: 25%;"></div>
+            </div>
+            <div class="d-flex justify-content-between text-muted-au small">
+              <span><strong>$423.00</strong> Paid (25%)</span>
+              <span><strong>$1,267.00</strong> Remaining Balance</span>
+            </div>
+          </div>
+
+          <!-- Installment Cards Breakdown -->
+          <div class="panel-au mb-4">
+            <div class="panel-head">
+              <h2><i class="bi bi-cash-stack"></i> Installment Schedule</h2>
+            </div>
+            <div class="panel-body">
+              <div class="installment-card is-paid">
+                <div class="installment-icon"><i class="bi bi-check-circle-fill"></i></div>
+                <div>
+                  <div class="installment-title">1st Milestone: Booking Deposit (25%)</div>
+                  <div class="installment-due">Paid on Aug 15, 2026 · Visa ending in 4018</div>
+                </div>
+                <div class="installment-amt">
+                  <strong>$423.00</strong>
+                  <span class="badge bg-success-subtle text-success">Paid</span>
+                </div>
+              </div>
+
+              <div class="installment-card is-due">
+                <div class="installment-icon"><i class="bi bi-exclamation-circle-fill"></i></div>
+                <div>
+                  <div class="installment-title">2nd Milestone: Pre-Trial Payment</div>
+                  <div class="installment-due">Due Oct 01, 2026 (Before trial session)</div>
+                </div>
+                <div class="installment-amt">
+                  <strong>$634.00</strong>
+                  <span class="badge bg-danger-subtle text-danger">Due Soon</span>
+                </div>
+              </div>
+
+              <div class="installment-card is-upcoming">
+                <div class="installment-icon"><i class="bi bi-clock-history"></i></div>
+                <div>
+                  <div class="installment-title">3rd Milestone: Final Wedding Balance</div>
+                  <div class="installment-due">Due Nov 07, 2026 (7 days before wedding)</div>
+                </div>
+                <div class="installment-amt">
+                  <strong>$633.00</strong>
+                  <span class="badge bg-secondary-subtle text-muted">Upcoming</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Invoices Data Table -->
+          <div class="panel-au">
+            <div class="panel-head">
+              <h2><i class="bi bi-receipt"></i> Official Invoice Records</h2>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-au">
+                <thead>
+                  <tr>
+                    <th>Invoice ID</th>
+                    <th>Date Issued</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th class="text-end">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>INV-1089</strong></td>
+                    <td>Aug 15, 2026</td>
+                    <td>The Bride Package — Deposit Retainer</td>
+                    <td>$423.00</td>
+                    <td><span class="status-pill status-paid">Paid</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-outline-brand" onclick="alert('Downloading official PDF receipt for INV-1089...')">
+                        <i class="bi bi-download me-1"></i> Receipt PDF
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>INV-1090</strong></td>
+                    <td>Sep 15, 2026</td>
+                    <td>The Bride Package — Milestone 2 (Trial)</td>
+                    <td>$634.00</td>
+                    <td><span class="status-pill status-due">Due Oct 1</span></td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-brand" data-bs-toggle="modal" data-bs-target="#payBalanceModal">
+                        <i class="bi bi-credit-card me-1"></i> Pay Now
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ============================================================
+             PANEL 5: MESSAGES WITH ARTIST
+             ============================================================ -->
+        <section class="dash-panel-view" id="panel-messages" data-panel-view="messages">
+          <div class="chat-shell">
+            <div class="chat-list">
+              <div class="p-3 border-bottom">
+                <h6 class="mb-0 text-heading-au fw-semibold">Studio Conversations</h6>
+              </div>
+              <button type="button" class="chat-list-item is-active">
+                <div class="chat-avatar"><i class="bi bi-flower2"></i></div>
+                <div class="min-w-0">
+                  <div class="cli-name">Nadia Sethi</div>
+                  <div class="cli-snip">Looking forward to our trial on Oct 3rd!</div>
+                </div>
+                <span class="cli-unread">1</span>
+              </button>
+              <button type="button" class="chat-list-item">
+                <div class="chat-avatar bg-secondary"><i class="bi bi-building"></i></div>
+                <div class="min-w-0">
+                  <div class="cli-name">Atelier Concierge</div>
+                  <div class="cli-snip">Parking & studio entry details sent.</div>
+                </div>
+              </button>
+            </div>
+
+            <div class="chat-thread">
+              <div class="chat-thread-head">
+                <div class="chat-avatar" style="width:36px;height:36px;font-size:1rem;"><i class="bi bi-flower2"></i></div>
+                <div>
+                  <div class="fw-semibold text-heading-au">Nadia Sethi <span class="badge bg-success-subtle text-success ms-1" style="font-size:0.65rem;">Online</span></div>
+                  <div class="text-muted-au small">Lead Master Artist & Founder</div>
+                </div>
+              </div>
+
+              <div class="chat-log" id="chatLog">
+                <div class="chat-msg">
+                  Hello Aisha! Excited to begin our artistry journey together for your November wedding.
+                  <span class="chat-time">Aug 16, 10:14 AM</span>
+                </div>
+                <div class="chat-msg is-me">
+                  Hi Nadia! So thrilled to work with you. I've uploaded our ceremony lehenga colors and a few jewelry photos into the moodboard.
+                  <span class="chat-time">Aug 16, 10:45 AM</span>
+                </div>
+                <div class="chat-msg">
+                  I reviewed the crimson dupatta with the gold zardozi border — it is breathtaking! For our trial on Oct 3rd, please arrive with clean, moisturized skin and dry hair.
+                  <span class="chat-time">Sep 10, 2:15 PM</span>
+                </div>
+                <div class="chat-msg">
+                  Would you like us to test two different lip shades during the trial (the soft rose nude vs. deeper warm terracotta)?
+                  <span class="chat-time">Yesterday, 4:20 PM</span>
+                </div>
+              </div>
+
+              <!-- Quick prompts -->
+              <div class="p-2 border-top bg-light-subtle d-flex gap-2 flex-wrap" id="quickReplyChips">
+                <button type="button" class="btn btn-sm btn-outline-brand py-0 px-2" style="font-size:0.75rem;" onclick="addQuickReply('Yes please, I would love to compare both lip shades!')">Compare both lip shades</button>
+                <button type="button" class="btn btn-sm btn-outline-brand py-0 px-2" style="font-size:0.75rem;" onclick="addQuickReply('Can I bring my sister or mother to the trial session?')">Guest policy at trial</button>
+                <button type="button" class="btn btn-sm btn-outline-brand py-0 px-2" style="font-size:0.75rem;" onclick="addQuickReply('I uploaded a new dupatta drape reference!')">New dupatta drape uploaded</button>
+              </div>
+
+              <form class="chat-compose" id="chatForm" onsubmit="handleSendChat(event)">
+                <textarea class="form-control" id="chatInput" rows="1" placeholder="Write a message to Nadia…" required></textarea>
+                <button type="submit" class="btn btn-brand rounded-circle d-grid place-items-center" style="width:42px;height:42px;flex:0 0 auto;" aria-label="Send message">
+                  <i class="bi bi-send-fill"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             PANEL 6: BRIDAL PROFILE & PREFERENCES
+             ============================================================ -->
+        <section class="dash-panel-view" id="panel-profile" data-panel-view="profile">
+          <div class="panel-au mb-4">
+            <div class="panel-head">
+              <h2><i class="bi bi-person-lines-fill"></i> Bridal Beauty & Event Profile</h2>
+            </div>
+            <div class="panel-body">
+              <form id="profileForm" onsubmit="handleSaveProfile(event)">
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="profBrideName">Bride Full Name</label>
+                    <input type="text" class="form-control" id="profBrideName" value="Aisha Rahman" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="profPartnerName">Partner Full Name</label>
+                    <input type="text" class="form-control" id="profPartnerName" value="Farhan Qureshi">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="profEmail">Email Address</label>
+                    <input type="email" class="form-control" id="profEmail" value="aisha.rahman@gmail.com" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="profPhone">Mobile / WhatsApp</label>
+                    <input type="tel" class="form-control" id="profPhone" value="+1 (415) 555-0118" required>
+                  </div>
+                </div>
+
+                <h5 class="font-display fw-bold mb-3 border-bottom pb-2">Skin & Beauty Characteristics</h5>
+                <div class="row g-3 mb-4">
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold" for="profSkinType">Skin Type</label>
+                    <select class="form-select" id="profSkinType">
+                      <option value="combination" selected>Combination (Oily T-Zone, Normal Cheeks)</option>
+                      <option value="dry">Dry / Dehydrated</option>
+                      <option value="oily">Oily / Prone to Shine</option>
+                      <option value="sensitive">Sensitive / Reactive</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold" for="profUndertone">Skin Undertone</label>
+                    <select class="form-select" id="profUndertone">
+                      <option value="warm" selected>Warm Golden / Olive</option>
+                      <option value="neutral">Neutral</option>
+                      <option value="cool">Cool Rosy</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold" for="profSensitivities">Known Sensitivities / Allergies</label>
+                    <input type="text" class="form-control" id="profSensitivities" value="Mild sensitivity to synthetic latex lashes">
+                  </div>
+                </div>
+
+                <h5 class="font-display fw-bold mb-3 border-bottom pb-2">Wedding Day Coordination Details</h5>
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="profVenue">Ceremony Venue & Room</label>
+                    <input type="text" class="form-control" id="profVenue" value="The Fairmont San Francisco — Presidential Penthouse Suite">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="profPhotographer">Lead Photographer / Team</label>
+                    <input type="text" class="form-control" id="profPhotographer" value="Lumière Bridal Studio (Lighting setup: Natural + Warm LED)">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="profPlanner">Wedding Planner / Day-of Coordinator</label>
+                    <input type="text" class="form-control" id="profPlanner" value="Serena Patel (+1 415-555-0199)">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold" for="profDraping">Veil / Dupatta Setting Style</label>
+                    <input type="text" class="form-control" id="profDraping" value="Double dupatta (heavy head veil + pleated shoulder drape)">
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end gap-2">
+                  <button type="submit" class="btn btn-brand px-4">
+                    <i class="bi bi-check2-circle me-1"></i> Save Bridal Preferences
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             PANEL 7: NOTIFICATIONS FEED
+             ============================================================ -->
+        <section class="dash-panel-view" id="panel-notifications" data-panel-view="notifications">
+          <div class="panel-au">
+            <div class="panel-head">
+              <h2><i class="bi bi-bell"></i> Notifications Center</h2>
+              <div class="panel-actions">
+                <button type="button" class="btn btn-outline-brand btn-sm" data-mark-all-read>Mark All Read</button>
+              </div>
+            </div>
+            <div class="panel-body p-0">
+              <div class="notif-item is-unread">
+                <div class="notif-icon"><i class="bi bi-calendar-check" aria-hidden="true"></i></div>
+                <div>
+                  <div class="notif-title">Hair & Makeup Trial Confirmed</div>
+                  <div class="notif-text">Your trial session with Lead Artist Nadia Sethi is confirmed for Saturday, October 3, 2026 at 2:00 PM at Aurelle Atelier.</div>
+                </div>
+                <span class="notif-time">2 hours ago</span>
+              </div>
+              <div class="notif-item is-unread">
+                <div class="notif-icon"><i class="bi bi-receipt" aria-hidden="true"></i></div>
+                <div>
+                  <div class="notif-title">Invoice INV-1090 Generated</div>
+                  <div class="notif-text">Milestone 2 payment invoice of $634.00 has been issued for your upcoming trial session.</div>
+                </div>
+                <span class="notif-time">1 day ago</span>
+              </div>
+              <div class="notif-item is-unread">
+                <div class="notif-icon"><i class="bi bi-chat-dots" aria-hidden="true"></i></div>
+                <div>
+                  <div class="notif-title">New Note from Nadia Sethi</div>
+                  <div class="notif-text">Nadia reviewed your moodboard and added comments on your textured chignon reference.</div>
+                </div>
+                <span class="notif-time">2 days ago</span>
+              </div>
+              <div class="notif-item">
+                <div class="notif-icon"><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
+                <div>
+                  <div class="notif-title">Deposit Payment Received</div>
+                  <div class="notif-text">Thank you! $423.00 deposit received for The Bride package (INV-1089).</div>
+                </div>
+                <span class="notif-time">Aug 15, 2026</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MODALS
+       ==================================================================== -->
+
+  <!-- Reschedule Modal -->
+  <div class="modal fade" id="rescheduleModal" tabindex="-1" aria-labelledby="rescheduleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-display fw-bold" id="rescheduleModalLabel">Request Trial Reschedule</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form onsubmit="handleRescheduleSubmit(event)">
+          <div class="modal-body">
+            <p class="text-muted-au small mb-3">Current Session: <strong>Oct 3, 2026 at 2:00 PM</strong> with Nadia Sethi.</p>
+            <div class="mb-3">
+              <label for="newDateInput" class="form-label fw-semibold">Preferred Alternative Date</label>
+              <input type="date" class="form-control" id="newDateInput" value="2026-10-10" required>
+            </div>
+            <div class="mb-3">
+              <label for="newTimeSelect" class="form-label fw-semibold">Preferred Time Slot</label>
+              <select class="form-select" id="newTimeSelect">
+                <option value="10:00 AM">Morning — 10:00 AM to 1:00 PM</option>
+                <option value="2:00 PM" selected>Afternoon — 2:00 PM to 5:00 PM</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="rescheduleReason" class="form-label fw-semibold">Reason / Notes for Artist</label>
+              <textarea class="form-control" id="rescheduleReason" rows="2" placeholder="e.g. Flight arrival moved or dress fitting adjustment..."></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-brand btn-sm">Submit Reschedule Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Request Session Modal -->
+  <div class="modal fade" id="requestSessionModal" tabindex="-1" aria-labelledby="requestSessionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-display fw-bold" id="requestSessionModalLabel">Add Bridal Event Session</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form onsubmit="handleNewSessionSubmit(event)">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="sessionTypeSelect" class="form-label fw-semibold">Session Type</label>
+              <select class="form-select" id="sessionTypeSelect">
+                <option value="Sangeet / Mehndi Styling">Sangeet / Mehndi Styling ($340)</option>
+                <option value="Engagement Shoot Glam">Engagement / Pre-wedding Shoot Glam ($520)</option>
+                <option value="Bridesmaids Group Styling">Bridesmaids Artistry (Per person $180)</option>
+                <option value="Mother of the Bride">Mother of the Bride / Groom ($220)</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="sessionDateInput" class="form-label fw-semibold">Requested Date</label>
+              <input type="date" class="form-control" id="sessionDateInput" value="2026-11-12" required>
+            </div>
+            <div class="mb-3">
+              <label for="sessionNotes" class="form-label fw-semibold">Special Requests</label>
+              <textarea class="form-control" id="sessionNotes" rows="2" placeholder="Location, headcount or styling notes..."></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-brand btn-sm">Send Session Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload Look Modal -->
+  <div class="modal fade" id="uploadLookModal" tabindex="-1" aria-labelledby="uploadLookModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-display fw-bold" id="uploadLookModalLabel">Add Look Reference</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form onsubmit="handleUploadLookSubmit(event)">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="lookTitleInput" class="form-label fw-semibold">Look Title</label>
+              <input type="text" class="form-control" id="lookTitleInput" placeholder="e.g. Floral Chignon with Matha Patti" required>
+            </div>
+            <div class="mb-3">
+              <label for="lookCategorySelect" class="form-label fw-semibold">Category</label>
+              <select class="form-select" id="lookCategorySelect">
+                <option value="Ceremony">Ceremony Makeup</option>
+                <option value="Hair">Hairstyling</option>
+                <option value="Reception">Reception Glam</option>
+                <option value="Mehndi">Mehndi & Sangeet</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="lookFileInput" class="form-label fw-semibold">Photo Inspiration</label>
+              <input type="file" class="form-control" id="lookFileInput" accept="image/*">
+            </div>
+            <div class="mb-3">
+              <label for="lookNotesInput" class="form-label fw-semibold">Notes for Nadia</label>
+              <textarea class="form-control" id="lookNotesInput" rows="2" placeholder="What elements of this look do you love?"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-brand btn-sm">Add to Moodboard</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pay Balance Modal -->
+  <div class="modal fade" id="payBalanceModal" tabindex="-1" aria-labelledby="payBalanceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-display fw-bold" id="payBalanceModalLabel">Make a Payment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form onsubmit="handlePaymentSubmit(event)">
+          <div class="modal-body">
+            <div class="p-3 bg-light-subtle rounded border mb-3">
+              <div class="d-flex justify-content-between small text-muted-au mb-1">
+                <span>Selected Milestone:</span>
+                <span class="fw-semibold text-heading-au">Milestone 2 (Pre-Trial)</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="fw-bold text-heading-au">Amount Due:</span>
+                <span class="font-display fw-bold fs-4 text-brand">$634.00</span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Payment Method</label>
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-outline-brand btn-sm flex-fill active"><i class="bi bi-credit-card me-1"></i> Card</button>
+                <button type="button" class="btn btn-outline-brand btn-sm flex-fill"><i class="bi bi-apple me-1"></i> Apple Pay</button>
+                <button type="button" class="btn btn-outline-brand btn-sm flex-fill"><i class="bi bi-bank me-1"></i> Bank Wire</button>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="cardNumber" class="form-label fw-semibold">Card Number</label>
+              <input type="text" class="form-control" id="cardNumber" placeholder="•••• •••• •••• 4018" value="4532 8901 2345 4018" required>
+            </div>
+            <div class="row g-2">
+              <div class="col-6">
+                <label for="cardExp" class="form-label fw-semibold">Expiry</label>
+                <input type="text" class="form-control" id="cardExp" placeholder="MM/YY" value="08/28" required>
+              </div>
+              <div class="col-6">
+                <label for="cardCvc" class="form-label fw-semibold">CVC</label>
+                <input type="text" class="form-control" id="cardCvc" placeholder="CVC" value="382" required>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-brand btn-sm">Pay $634.00 Securely</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

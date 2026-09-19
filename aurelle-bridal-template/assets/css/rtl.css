@@ -1,0 +1,382 @@
+/* ==========================================================================
+   AURELLE — RTL overrides (Arabic / Hebrew)
+   --------------------------------------------------------------------------
+   The main stylesheet is authored with CSS logical properties
+   (inset-inline-*, padding-inline-*, margin-inline-*), so the vast majority
+   of the layout mirrors automatically when dir="rtl" is set on <html>.
+   This file only handles what logical properties cannot express:
+   directional gradients, transforms, glyph mirroring and font stacks.
+
+   Loaded/unloaded at runtime by assets/js/main.js together with the
+   Bootstrap RTL build. Toggle with the LTR/RTL button in the navbar.
+   ========================================================================== */
+
+[dir="rtl"]:not([lang="en"]) {
+  --au-font-body: "Noto Sans Arabic", "Noto Sans Hebrew", "Segoe UI", Tahoma, "Jost", sans-serif;
+  --au-font-display: "Noto Naskh Arabic", "Amiri", "Frank Ruhl Libre", "Cormorant Garamond", Georgia, serif;
+  --au-font-script: var(--au-font-display);
+}
+
+[dir="rtl"] {
+  text-align: right;
+}
+
+/* Ensure English sentences in RTL layout keep their punctuation (periods, questions, exclamations) on the right side */
+[dir="rtl"] p,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6,
+[dir="rtl"] li,
+[dir="rtl"] blockquote,
+[dir="rtl"] label,
+[dir="rtl"] button,
+[dir="rtl"] .accordion-button,
+[dir="rtl"] .accordion-header,
+[dir="rtl"] .accordion-item,
+[dir="rtl"] .accordion-body,
+[dir="rtl"] .btn,
+[dir="rtl"] .lead,
+[dir="rtl"] .hero-lead,
+[dir="rtl"] .eyebrow-au,
+[dir="rtl"] .section-head p,
+[dir="rtl"] .section-head h2,
+[dir="rtl"] .card-text,
+[dir="rtl"] .card-title,
+[dir="rtl"] .alert,
+[dir="rtl"] .toast-body,
+[dir="rtl"] .modal-body,
+[dir="rtl"] .modal-title,
+[dir="rtl"] .dropdown-item,
+[dir="rtl"] .form-text,
+[dir="rtl"] .form-label,
+[dir="rtl"] .form-check-label,
+[dir="rtl"] .badge,
+[dir="rtl"] small,
+[dir="rtl"] a,
+[dir="rtl"] span,
+[dir="rtl"] summary {
+  unicode-bidi: plaintext;
+}
+
+[dir="rtl"] body { letter-spacing: 0; }
+
+/* Headings keep tighter tracking off in RTL scripts */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6,
+[dir="rtl"] .eyebrow-au,
+[dir="rtl"] .navbar-brand-au,
+[dir="rtl"] .stat-au .stat-label,
+[dir="rtl"] .team-card .team-role,
+[dir="rtl"] .countdown-cell span { letter-spacing: 0; }
+
+[dir="rtl"] .navbar-brand-au small { letter-spacing: 0.12em; }
+
+/* --- Directional gradients ------------------------------------------------ */
+[dir="rtl"] .divider-au { background: linear-gradient(270deg, var(--au-rose), var(--au-gold)); }
+[dir="rtl"] .progress-au .bar { background: linear-gradient(270deg, var(--au-rose), var(--au-gold)); }
+[dir="rtl"] .navbar-au .nav-link::after {
+  left: 50%;
+  right: auto;
+  inset-inline-start: auto;
+  transform: translateX(-50%);
+  background: linear-gradient(270deg, var(--au-rose), var(--au-gold));
+}
+
+/* --- Glyph mirroring ------------------------------------------------------ */
+[dir="rtl"] .bi-arrow-right,
+[dir="rtl"] .bi-arrow-left,
+[dir="rtl"] .bi-arrow-right-short,
+[dir="rtl"] .bi-arrow-left-short,
+[dir="rtl"] .bi-chevron-right,
+[dir="rtl"] .bi-chevron-left,
+[dir="rtl"] .bi-box-arrow-right,
+[dir="rtl"] .bi-send { display: inline-block; transform: scaleX(-1); }
+
+/* --- Components needing explicit flips ------------------------------------ */
+[dir="rtl"] .ba-wrap .ba-after { border-inline-end: 3px solid #fff; border-inline-start: 0; }
+[dir="rtl"] .ba-handle { transform: translateX(50%); }
+[dir="rtl"] .ba-handle-knob i { transform: none !important; }
+
+[dir="rtl"] .au-carousel-track { direction: ltr; }
+[dir="rtl"] .au-carousel-slide { direction: rtl; }
+[dir="rtl"] .marquee-au { direction: ltr; }
+[dir="rtl"] .marquee-track { direction: ltr; }
+
+/* Testimonials in RTL — keep uniform right alignment across stars, quotes and authors with proper trailing punctuation */
+[dir="rtl"] .testimonial-card,
+[dir="rtl"] .testimonial-card * {
+  text-align: right;
+}
+[dir="rtl"] .testimonial-card blockquote {
+  text-align: right !important;
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  display: block;
+}
+[dir="rtl"] .testimonial-card .stars {
+  text-align: right !important;
+  direction: rtl;
+}
+[dir="rtl"] .testimonial-author {
+  text-align: right !important;
+  direction: rtl;
+  justify-content: flex-start;
+}
+[dir="rtl"] .testimonial-author strong,
+[dir="rtl"] .testimonial-author small {
+  text-align: right !important;
+}
+
+[dir="rtl"] .section-head.start,
+[dir="rtl"] .divider-au.start { margin-inline: 0; }
+
+/* --- Alignment & Centering Preservations ----------------------------------- */
+[dir="rtl"] .text-center,
+[dir="rtl"] .text-center *,
+[dir="rtl"] .text-center p,
+[dir="rtl"] .text-center h1,
+[dir="rtl"] .text-center h2,
+[dir="rtl"] .text-center h3,
+[dir="rtl"] .text-center h4,
+[dir="rtl"] .text-center h5,
+[dir="rtl"] .text-center h6,
+[dir="rtl"] .text-center .lead,
+[dir="rtl"] .text-center .eyebrow-au,
+[dir="rtl"] .text-center span,
+[dir="rtl"] .page-hero,
+[dir="rtl"] .page-hero *,
+[dir="rtl"] .page-hero h1,
+[dir="rtl"] .page-hero p,
+[dir="rtl"] .page-hero .lead,
+[dir="rtl"] .page-hero .eyebrow-au,
+[dir="rtl"] .page-hero .breadcrumb-au,
+[dir="rtl"] .section-head:not(.start),
+[dir="rtl"] .section-head:not(.start) *,
+[dir="rtl"] .section-head:not(.start) h2,
+[dir="rtl"] .section-head:not(.start) p,
+[dir="rtl"] .section-head:not(.start) .lead,
+[dir="rtl"] .section-head:not(.start) .eyebrow-au,
+[dir="rtl"] .step-au,
+[dir="rtl"] .step-au *,
+[dir="rtl"] .empty-state,
+[dir="rtl"] .empty-state *,
+[dir="rtl"] .countdown-cell,
+[dir="rtl"] .countdown-cell *,
+[dir="rtl"] .stat-au,
+[dir="rtl"] .stat-au *,
+[dir="rtl"] .team-card,
+[dir="rtl"] .team-card *,
+[dir="rtl"] .form-success,
+[dir="rtl"] .form-success *,
+[dir="rtl"] .error-hero,
+[dir="rtl"] .error-hero *,
+[dir="rtl"] .breadcrumb-au,
+[dir="rtl"] .breadcrumb-au *,
+[dir="rtl"] .modal-header.text-center,
+[dir="rtl"] .modal-header.text-center * {
+  text-align: center !important;
+}
+
+[dir="rtl"] .section-head.start,
+[dir="rtl"] .section-head.start *,
+[dir="rtl"] .text-start,
+[dir="rtl"] .text-start * {
+  text-align: right !important;
+}
+
+[dir="rtl"] .text-end,
+[dir="rtl"] .text-end * {
+  text-align: left !important;
+}
+
+@media (min-width: 992px) {
+  [dir="rtl"] .text-lg-end,
+  [dir="rtl"] .text-lg-end * {
+    text-align: left !important;
+  }
+  [dir="rtl"] .text-lg-start,
+  [dir="rtl"] .text-lg-start * {
+    text-align: right !important;
+  }
+  [dir="rtl"] .text-lg-center,
+  [dir="rtl"] .text-lg-center * {
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 768px) {
+  [dir="rtl"] .text-md-end,
+  [dir="rtl"] .text-md-end * {
+    text-align: left !important;
+  }
+  [dir="rtl"] .text-md-start,
+  [dir="rtl"] .text-md-start * {
+    text-align: right !important;
+  }
+  [dir="rtl"] .text-md-center,
+  [dir="rtl"] .text-md-center * {
+    text-align: center !important;
+  }
+}
+
+[dir="rtl"] .post-body blockquote { border-inline-start: 3px solid var(--au-rose); }
+
+[dir="rtl"] .form-check { padding-right: 1.5em; padding-left: 0; }
+[dir="rtl"] .form-check .form-check-input { float: right; margin-right: -1.5em; margin-left: 0; }
+
+/* --- Form Inputs & Controls ----------------------------------------------- */
+[dir="rtl"] .form-control,
+[dir="rtl"] .form-select,
+[dir="rtl"] input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+  text-align: right;
+  direction: rtl;
+  unicode-bidi: plaintext;
+}
+
+[dir="rtl"] .form-control::placeholder,
+[dir="rtl"] input::placeholder,
+[dir="rtl"] textarea::placeholder {
+  text-align: right;
+  direction: rtl;
+  unicode-bidi: plaintext;
+}
+
+[dir="rtl"] .form-select {
+  padding-right: 1rem;
+  padding-left: 2.5rem;
+  background-position: left 1rem center;
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .input-icon-group .form-control {
+  padding-right: 2.9rem;
+  padding-left: 1rem;
+}
+
+[dir="rtl"] .input-icon-group.has-toggle .form-control {
+  padding-right: 2.9rem;
+  padding-left: 3rem;
+}
+
+[dir="rtl"] .input-icon-group .input-icon {
+  right: 1rem;
+  left: auto;
+}
+
+[dir="rtl"] .pw-toggle {
+  left: 0.5rem;
+  right: auto;
+}
+
+[dir="rtl"] .form-label {
+  text-align: right;
+  display: block;
+}
+
+[dir="rtl"] .form-label .req {
+  margin-right: 0.15rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .invalid-feedback,
+[dir="rtl"] .valid-feedback,
+[dir="rtl"] .form-text {
+  text-align: right;
+  unicode-bidi: plaintext;
+}
+
+[dir="rtl"] .newsletter-form .form-control {
+  padding-left: 3.4rem;
+  padding-right: 1rem;
+  text-align: right;
+}
+
+[dir="rtl"] .newsletter-form .btn-send {
+  left: 6px;
+  right: auto;
+}
+
+[dir="rtl"] .dash-search .form-control {
+  padding-right: 2.6rem;
+  padding-left: 1rem;
+  text-align: right;
+}
+
+[dir="rtl"] .dash-search .bi-search,
+[dir="rtl"] .dash-search .input-icon {
+  right: 1rem;
+  left: auto;
+}
+
+[dir="rtl"] .table-toolbar .form-control {
+  text-align: right;
+}
+
+[dir="rtl"] .dropdown-menu { text-align: right; }
+
+/* --- Dashboard ------------------------------------------------------------ */
+[dir="rtl"] .dash-sidebar { border-inline-end: 0; border-inline-start: 1px solid var(--au-border); }
+[dir="rtl"] .timeline-au { padding-inline-start: 0; padding-inline-end: 1.75rem; }
+[dir="rtl"] .chat-msg.is-me { margin-inline-start: auto; margin-inline-end: 0; }
+
+/* Numbers stay LTR inside RTL text */
+[dir="rtl"] .stat-num,
+[dir="rtl"] .plan-price,
+[dir="rtl"] .countdown-cell strong,
+[dir="rtl"] .kpi-value,
+[dir="rtl"] .mono,
+[dir="rtl"] .invoice-amount { direction: ltr; unicode-bidi: embed; display: inline-block; }
+
+[dir="rtl"] .itinerary-card::before {
+  left: auto;
+  right: 0;
+}
+
+/* --- Flight Hub Cards & Icon Lists in RTL --------------------------------- */
+[dir="rtl"] .flight-hub-card,
+[dir="rtl"] .flight-hub-card * {
+  text-align: right;
+}
+
+[dir="rtl"] .flight-hub-card .hub-perks li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  text-align: right;
+  direction: rtl;
+  unicode-bidi: isolate;
+}
+
+[dir="rtl"] .flight-hub-card .hub-perks li::before {
+  content: "✓";
+  color: var(--au-rose);
+  font-weight: bold;
+  flex-shrink: 0;
+  line-height: 1.45;
+  position: static;
+}
+
+[dir="rtl"] .feature-list li,
+[dir="rtl"] .checkpoint-list li,
+[dir="rtl"] .plan-features li {
+  text-align: right;
+  direction: rtl;
+  unicode-bidi: isolate;
+}
+
+[dir="rtl"] .flight-hub-card .hub-destinations {
+  justify-content: flex-start;
+}
+
+
+
