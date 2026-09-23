@@ -464,7 +464,7 @@
 
               <!-- Session 2: Wedding Day -->
               <div class="appt-card mb-4 border-start border-4 border-rose">
-                <div class="appt-date bg-gold-subtle text-dark">
+                <div class="appt-date appt-date-gold">
                   <strong>14</strong>
                   <span>NOV 2026</span>
                 </div>
@@ -489,7 +489,7 @@
 
               <!-- Session 3: Completed Consultation -->
               <div class="appt-card opacity-75">
-                <div class="appt-date bg-light text-muted">
+                <div class="appt-date appt-date-muted">
                   <strong>15</strong>
                   <span>AUG 2026</span>
                 </div>
@@ -1068,7 +1068,7 @@
           <h5 class="modal-title font-display fw-bold" id="payBalanceModalLabel">Make a Payment</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form onsubmit="handlePaymentSubmit(event)">
+        <form id="payBalanceForm" onsubmit="handlePaymentSubmit(event)" novalidate>
           <div class="modal-body">
             <div class="p-3 bg-light-subtle rounded border mb-3">
               <div class="d-flex justify-content-between small text-muted-au mb-1">
@@ -1091,23 +1091,32 @@
             </div>
 
             <div class="mb-3">
+              <label for="cardHolder" class="form-label fw-semibold">Cardholder Name</label>
+              <input type="text" class="form-control" id="cardHolder" placeholder="Aisha Rahman" value="Aisha Rahman" autocomplete="cc-name" required>
+              <div class="invalid-feedback d-block" role="alert"></div>
+            </div>
+
+            <div class="mb-3">
               <label for="cardNumber" class="form-label fw-semibold">Card Number</label>
-              <input type="text" class="form-control" id="cardNumber" placeholder="•••• •••• •••• 4018" value="4532 8901 2345 4018" required>
+              <input type="text" class="form-control" id="cardNumber" inputmode="numeric" placeholder="4532 •••• •••• 4018" value="4532 8901 2345 4018" maxlength="19" autocomplete="cc-number" required>
+              <div class="invalid-feedback d-block" role="alert"></div>
             </div>
             <div class="row g-2">
               <div class="col-6">
-                <label for="cardExp" class="form-label fw-semibold">Expiry</label>
-                <input type="text" class="form-control" id="cardExp" placeholder="MM/YY" value="08/28" required>
+                <label for="cardExp" class="form-label fw-semibold">Expiry Date</label>
+                <input type="text" class="form-control" id="cardExp" inputmode="numeric" placeholder="MM/YY" value="08/28" maxlength="5" autocomplete="cc-exp" required>
+                <div class="invalid-feedback d-block" role="alert"></div>
               </div>
               <div class="col-6">
-                <label for="cardCvc" class="form-label fw-semibold">CVC</label>
-                <input type="text" class="form-control" id="cardCvc" placeholder="CVC" value="382" required>
+                <label for="cardCvc" class="form-label fw-semibold">CVC / CVV</label>
+                <input type="text" class="form-control" id="cardCvc" inputmode="numeric" placeholder="382" value="382" maxlength="4" autocomplete="cc-csc" required>
+                <div class="invalid-feedback d-block" role="alert"></div>
               </div>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-brand btn-sm">Pay $634.00 Securely</button>
+            <button type="submit" class="btn btn-brand btn-sm" id="paySubmitBtn">Pay $634.00 Securely</button>
           </div>
         </form>
       </div>

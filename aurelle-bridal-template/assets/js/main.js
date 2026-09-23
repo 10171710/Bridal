@@ -98,7 +98,9 @@
     en: {
       "nav.home": "Home",
       "nav.home1": "Home 1 — Classic Atelier",
+      "nav.home1.desc": "Haute couture artistry, signature lookbook & trials",
       "nav.home2": "Home 2 — Modern Editorial",
+      "nav.home2.desc": "Worldwide destination residencies & travel kit",
       "nav.home2.classic": "Home 2 — Modern Editorial",
       "nav.home2.studio": "Studio Showcase",
       "nav.about": "About",
@@ -139,7 +141,9 @@
     ar: {
       "nav.home": "الرئيسية",
       "nav.home1": "الرئيسية ١ — كلاسيك أتيليه",
+      "nav.home1.desc": "فن الهوت كوتور ودليل الإطلالات الفاخرة",
       "nav.home2": "الرئيسية ٢ — تصميم عصري",
+      "nav.home2.desc": "الإقامات الفاخرة العالمية ومعدات السفر",
       "nav.home2.classic": "الرئيسية ٢ — تصميم عصري",
       "nav.home2.studio": "معرض الاستوديو",
       "nav.about": "من نحن",
@@ -180,7 +184,9 @@
     he: {
       "nav.home": "בית",
       "nav.home1": "בית 1 — סטודיו קלאסי",
+      "nav.home1.desc": "אמנות קוטור יוקרתית ומראות מותאמים אישית",
       "nav.home2": "בית 2 — עיצוב מודרני",
+      "nav.home2.desc": "שירותי חו״ל ומזוודת איפור עולמית",
       "nav.home2.classic": "בית 2 — עיצוב מודרני",
       "nav.home2.studio": "תצוגת הסטודיו",
       "nav.about": "אודות",
@@ -256,10 +262,6 @@
     });
 
     document.dispatchEvent(new CustomEvent("au:themechange", { detail: { theme: next } }));
-
-    if (announce) {
-      AU.toast(next === "dark" ? AU.t("toast.themeDark") : AU.t("toast.themeLight"), "info");
-    }
   };
 
   AU.getDir = function () {
@@ -374,7 +376,7 @@
 
     $$("[data-theme-toggle]").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        AU.setTheme(AU.getTheme() === "dark" ? "light" : "dark", true);
+        AU.setTheme(AU.getTheme() === "dark" ? "light" : "dark", false);
       });
     });
 

@@ -121,10 +121,6 @@
           currentBilling = mode;
           setToggleButtons(mode);
           renderPrices(mode);
-          AU.toast(
-            mode === "peak" ? "Showing peak season pricing (+15%)." : "Showing standard pricing.",
-            "info"
-          );
         });
       });
     }
@@ -133,7 +129,7 @@
       $$("[data-select-plan]").forEach(function (btn) {
         btn.addEventListener("click", function () {
           var card = btn.closest ? btn.closest(".pricing-card") : null;
-          selectPlan(card, true);
+          selectPlan(card, false);
         });
       });
     }

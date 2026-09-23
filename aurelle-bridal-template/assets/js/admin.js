@@ -352,6 +352,280 @@
   };
 
   /* ------------------------------------------------------------------------
+     ADMIN TOPBAR LIVE SEARCH
+     ------------------------------------------------------------------------ */
+  function initAdminTopSearch() {
+    var searchInput = $("#adminSearch");
+    if (!searchInput) return;
+
+    var container = searchInput.closest(".dash-search");
+    if (!container) return;
+
+    var dropdown = $("#adminSearchDropdown");
+    if (!dropdown) {
+      dropdown = document.createElement("div");
+      dropdown.id = "adminSearchDropdown";
+      dropdown.className = "dash-search-dropdown";
+      dropdown.setAttribute("role", "listbox");
+      dropdown.setAttribute("aria-label", "Search results");
+      container.appendChild(dropdown);
+    }
+
+    var ADMIN_INDEX = [
+      {
+        category: "Brides & Bookings",
+        panel: "bookings",
+        selector: "#bookingsTableBody tr:nth-child(1)",
+        title: "Aisha Rahman — BK-2026-089",
+        sub: "Nov 14, 2026 · The Bride Full Experience ($1,690) · Confirmed",
+        badge: "Confirmed",
+        badgeClass: "badge bg-success-subtle text-success",
+        icon: "bi-person-heart",
+        tone: "rose",
+        keywords: "aisha rahman bk-2026-089 089 bride package 1690 confirmed november"
+      },
+      {
+        category: "Brides & Bookings",
+        panel: "bookings",
+        selector: "#bookingsTableBody tr:nth-child(2)",
+        title: "Priya Sharma — BK-2026-090",
+        sub: "Dec 05, 2026 · Couture Wedding Week ($3,850) · Confirmed",
+        badge: "Confirmed",
+        badgeClass: "badge bg-success-subtle text-success",
+        icon: "bi-person-heart",
+        tone: "gold",
+        keywords: "priya sharma bk-2026-090 090 couture week 3850 december"
+      },
+      {
+        category: "Brides & Bookings",
+        panel: "bookings",
+        selector: "#bookingsTableBody tr:nth-child(3)",
+        title: "Maya Lin — BK-2026-091",
+        sub: "Oct 24, 2026 · Private Lighting Lab ($650) · Pending Deposit",
+        badge: "Pending",
+        badgeClass: "badge bg-warning-subtle text-dark",
+        icon: "bi-person",
+        tone: "purple",
+        keywords: "maya lin bk-2026-091 091 lighting lab 650 pending october"
+      },
+      {
+        category: "Invoices & Revenue",
+        panel: "invoices",
+        selector: "#panel-invoices",
+        title: "Invoice Management & Billing Records",
+        sub: "INV-1089, INV-1090, INV-1091, INV-1092 · $14,800 pending collections",
+        badge: "Invoices",
+        badgeClass: "badge bg-rose-light text-brand",
+        icon: "bi-receipt",
+        tone: "rose",
+        keywords: "invoices billing inv-1089 inv-1090 inv-1091 inv-1092 payment records"
+      },
+      {
+        category: "Artists & Atelier",
+        panel: "artists",
+        selector: "#panel-artists",
+        title: "Master Artist Roster & Availability",
+        sub: "Nadia Sethi (Lead Master), Leena Roy (Senior Hair), Sana Mir (Henna Master)",
+        badge: "3 Artists",
+        badgeClass: "badge bg-secondary-subtle text-dark",
+        icon: "bi-people",
+        tone: "green",
+        keywords: "artists roster nadia sethi leena roy sana mir availability schedule"
+      },
+      {
+        category: "Analytics & Reports",
+        panel: "reports",
+        selector: "#panel-reports",
+        title: "Studio Revenue & Booking Analytics",
+        sub: "$48,250 YTD Revenue · 94% Seasonal Occupancy · 42 Total Brides",
+        badge: "Analytics",
+        badgeClass: "badge bg-gold-light text-dark",
+        icon: "bi-graph-up-arrow",
+        tone: "gold",
+        keywords: "reports analytics revenue 48250 occupancy charts performance"
+      }
+    ];
+
+    function escapeHtml(str) {
+      return (str || "").replace(/[&<>"']/g, function (m) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m];
+      });
+    }
+
+    function highlightMatch(text, query) {
+      if (!query) return escapeHtml(text);
+      var safeText = escapeHtml(text);
+      var words = query.trim().split(/\s+/).filter(Boolean).map(function (w) {
+        return w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      });
+      if (!words.length) return safeText;
+      var regex = new RegExp("(" + words.join("|") + ")", "gi");
+      return safeText.replace(regex, "<mark>$1</mark>");
+    }
+
+    var selectedIndex = -1;
+
+    function renderResults(query) {
+      var q = query.toLowerCase().trim();
+      if (!q) {
+        dropdown.classList.remove("is-open");
+        dropdown.innerHTML = "";
+        selectedIndex = -1;
+        return;
+      }
+
+      var words = q.split(/\s+/).filter(Boolean);
+      var matches = ADMIN_INDEX.filter(function (item) {
+        var haystack = (item.title + " " + item.sub + " " + item.category + " " + item.keywords).toLowerCase();
+        return words.every(function (word) {
+          return haystack.indexOf(word) !== -1;
+        });
+      });
+
+      if (!matches.length) {
+        dropdown.innerHTML =
+          '<div class="dash-search-empty">' +
+            'No matches found for "' + escapeHtml(query) + '"' +
+            '<div class="small text-muted-au mt-1">Try searching for Aisha, Priya, INV-1090, or Nadia</div>' +
+          '</div>';
+        dropdown.classList.add("is-open");
+        selectedIndex = -1;
+        return;
+      }
+
+      var grouped = {};
+      matches.forEach(function (m) {
+        if (!grouped[m.category]) grouped[m.category] = [];
+        grouped[m.category].push(m);
+      });
+
+      var html = "";
+      var itemIndex = 0;
+      Object.keys(grouped).forEach(function (cat) {
+        html += '<div class="dash-search-group">';
+        html += '<div class="dash-search-group-title"><span>' + escapeHtml(cat) + '</span><span>' + grouped[cat].length + '</span></div>';
+        grouped[cat].forEach(function (item) {
+          html +=
+            '<button type="button" class="dash-search-item" data-search-idx="' + itemIndex + '" data-panel="' + item.panel + '" data-selector="' + (item.selector || "") + '">' +
+              '<div class="dash-search-item-body">' +
+                '<div class="dash-search-item-title">' +
+                  '<i class="bi ' + item.icon + ' text-brand" aria-hidden="true"></i>' +
+                  '<span>' + highlightMatch(item.title, query) + '</span>' +
+                '</div>' +
+                '<div class="dash-search-item-sub">' + highlightMatch(item.sub, query) + '</div>' +
+              '</div>' +
+              (item.badge ? '<span class="dash-search-item-badge ' + item.badgeClass + '">' + escapeHtml(item.badge) + '</span>' : '') +
+            '</button>';
+          itemIndex++;
+        });
+        html += '</div>';
+      });
+
+      html +=
+        '<div class="dash-search-footer">' +
+          '<span><strong>' + matches.length + '</strong> ' + (matches.length === 1 ? 'match' : 'matches') + '</span>' +
+          '<span>Press <kbd style="font-size:0.68rem;padding:1px 4px;border-radius:3px;background:rgba(120,120,120,0.15);">Enter ↵</kbd> to jump</span>' +
+        '</div>';
+
+      dropdown.innerHTML = html;
+      dropdown.classList.add("is-open");
+      selectedIndex = -1;
+    }
+
+    function selectItem(button) {
+      if (!button) return;
+      var panel = button.getAttribute("data-panel");
+      var selector = button.getAttribute("data-selector");
+
+      if (panel) {
+        switchPanel(panel);
+      }
+
+      dropdown.classList.remove("is-open");
+      searchInput.blur();
+
+      if (selector) {
+        setTimeout(function () {
+          var targetEl = $(selector);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: "smooth", block: "center" });
+            targetEl.classList.remove("dash-search-highlight");
+            void targetEl.offsetWidth;
+            targetEl.classList.add("dash-search-highlight");
+            setTimeout(function () {
+              targetEl.classList.remove("dash-search-highlight");
+            }, 2500);
+          }
+        }, 150);
+      }
+
+      if (AU.toast) {
+        var title = button.querySelector(".dash-search-item-title") ? button.querySelector(".dash-search-item-title").textContent : "";
+        AU.toast("Navigated to: " + title, "info");
+      }
+    }
+
+    searchInput.addEventListener("input", function () {
+      renderResults(searchInput.value);
+    });
+
+    searchInput.addEventListener("focus", function () {
+      if (searchInput.value.trim()) {
+        renderResults(searchInput.value);
+      }
+    });
+
+    searchInput.addEventListener("keydown", function (e) {
+      var items = $$(".dash-search-item", dropdown);
+      if (!items.length || !dropdown.classList.contains("is-open")) {
+        if (e.key === "Escape") {
+          dropdown.classList.remove("is-open");
+        }
+        return;
+      }
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        selectedIndex = (selectedIndex + 1) % items.length;
+        items.forEach(function (it, idx) {
+          it.classList.toggle("is-selected", idx === selectedIndex);
+          if (idx === selectedIndex) it.scrollIntoView({ block: "nearest" });
+        });
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+        items.forEach(function (it, idx) {
+          it.classList.toggle("is-selected", idx === selectedIndex);
+          if (idx === selectedIndex) it.scrollIntoView({ block: "nearest" });
+        });
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        if (selectedIndex >= 0 && items[selectedIndex]) {
+          selectItem(items[selectedIndex]);
+        } else if (items[0]) {
+          selectItem(items[0]);
+        }
+      } else if (e.key === "Escape") {
+        dropdown.classList.remove("is-open");
+      }
+    });
+
+    dropdown.addEventListener("click", function (e) {
+      var btn = e.target.closest(".dash-search-item");
+      if (btn) {
+        e.preventDefault();
+        selectItem(btn);
+      }
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!container.contains(e.target)) {
+        dropdown.classList.remove("is-open");
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------------------
      BOOTSTRAP INIT
      ------------------------------------------------------------------------ */
   function init() {
@@ -362,6 +636,7 @@
     bindPanelLinks();
     bindSidebar();
     bindBookingsFilters();
+    initAdminTopSearch();
     initOverviewCharts();
 
     restoreFromHash();
