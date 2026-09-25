@@ -80,6 +80,12 @@
 
 
         <div id="loginError" hidden></div>
+        <div id="loginSuccess" class="alert-au alert-success-au mb-3" hidden>
+          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+          <div>
+            <strong>Login Successful!</strong> Welcome back, <span id="loginSuccessName">Client</span>. You are now logged in.
+          </div>
+        </div>
 
         <!-- Login Form -->
         <form id="loginForm">
@@ -88,7 +94,7 @@
             <div class="input-icon-group">
               <i class="bi bi-envelope input-icon" aria-hidden="true"></i>
               <input type="email" class="form-control" id="loginEmail" name="email" required
-                     placeholder="you@example.com" autocomplete="email">
+                     placeholder="client@aurelle.com" autocomplete="email">
             </div>
             <div class="invalid-feedback d-block" role="alert"></div>
           </div>
@@ -118,7 +124,7 @@
             <label class="form-check-label small text-muted-au" for="loginRemember">Keep me signed in on this device</label>
           </div>
 
-          <button type="submit" class="btn btn-brand btn-lg w-100">
+          <button type="submit" class="btn btn-brand btn-lg w-100" id="loginSubmitBtn">
             <span class="btn-label"><i class="bi bi-box-arrow-in-right" aria-hidden="true"></i> Sign In to Portal</span>
           </button>
         </form>
@@ -126,22 +132,21 @@
         <!-- Divider -->
         <div class="auth-divider">or continue with</div>
 
-        <!-- Social SSO Buttons -->
-        <div class="social-auth">
-          <button type="button" class="btn" data-social-auth="google">
-            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3.03h3.86c2.26-2.09 3.56-5.17 3.56-8.9z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3.03c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.12C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.26a7.22 7.22 0 0 1 0-4.52V6.62H1.29a12.01 12.01 0 0 0 0 10.76l3.98-3.12z"/><path fill="#EA4335" d="M12 4.78c1.76 0 3.35.6 4.6 1.79l3.42-3.42C17.94 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.12C6.22 6.89 8.87 4.78 12 4.78z"/></svg>
-            <span>Google</span>
+        <!-- Social SSO Buttons (Opens dedicated Provider Sign In dialogs) -->
+        <div class="social-auth social-auth-stacked">
+          <button type="button" class="btn btn-social-full" id="google-signin-btn" data-social-auth="google" title="Continue with Google">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3.03h3.86c2.26-2.09 3.56-5.17 3.56-8.9z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3.03c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.12C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.26a7.22 7.22 0 0 1 0-4.52V6.62H1.29a12.01 12.01 0 0 0 0 10.76l3.98-3.12z"/><path fill="#EA4335" d="M12 4.78c1.76 0 3.35.6 4.6 1.79l3.42-3.42C17.94 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.12C6.22 6.89 8.87 4.78 12 4.78z"/></svg>
+            <span>Continue with Google</span>
           </button>
-          <button type="button" class="btn" data-social-auth="facebook">
-            <i class="bi bi-facebook text-primary" aria-hidden="true"></i>
-            <span>Facebook</span>
+          <button type="button" class="btn btn-social-full btn-social-fb" id="facebook-signin-btn" data-social-auth="facebook" title="Continue with Facebook">
+            <i class="bi bi-facebook fs-5" aria-hidden="true"></i>
+            <span>Continue with Facebook</span>
           </button>
-          <button type="button" class="btn" data-social-auth="apple">
-            <i class="bi bi-apple" aria-hidden="true"></i>
-            <span>Apple</span>
+          <button type="button" class="btn btn-social-full btn-social-apple" id="apple-signin-btn" data-social-auth="apple" title="Continue with Apple">
+            <i class="bi bi-apple fs-5" aria-hidden="true"></i>
+            <span>Continue with Apple</span>
           </button>
         </div>
-
 
         <!-- Footnote Links -->
         <div class="auth-footnote">

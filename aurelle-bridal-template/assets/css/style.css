@@ -2675,8 +2675,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   grid-template-columns: repeat(3, 1fr);
   gap: 0.6rem;
 }
+.social-auth.social-auth-stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
 @media (max-width: 480px) {
-  .social-auth {
+  .social-auth:not(.social-auth-stacked) {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
@@ -2689,25 +2694,48 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 1rem 0.5rem;
   }
 }
-.social-auth .btn {
+.social-auth .btn,
+.btn-social-full {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 0.55rem;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
   border-radius: var(--au-r);
-  padding: 0.65rem 0.6rem;
-  font-size: 0.84rem;
+  padding: 0.72rem 1rem;
+  font-size: 0.88rem;
   font-weight: 500;
+  width: 100%;
   transition: all var(--au-trans, 0.25s ease);
+  cursor: pointer;
 }
-.social-auth .btn:hover {
+.social-auth .btn:hover,
+.btn-social-full:hover {
   border-color: var(--au-rose-light, #f0c3cb);
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.16);
   transform: translateY(-2px);
+}
+.btn-social-fb {
+  background: #1877f2 !important;
+  border-color: #1877f2 !important;
+  color: #ffffff !important;
+}
+.btn-social-fb:hover {
+  background: #166fe5 !important;
+  border-color: #166fe5 !important;
+  box-shadow: 0 4px 14px rgba(24, 119, 242, 0.35);
+}
+.btn-social-apple {
+  background: rgba(0, 0, 0, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+}
+.btn-social-apple:hover {
+  background: #000000 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 }
 
 .auth-footnote {
@@ -2742,6 +2770,191 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   padding: 0.75rem 1rem;
   margin-bottom: 1.25rem;
   font-size: 0.88rem;
+}
+
+/* Quick Demo Fill Pills */
+.demo-quick-fill {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  border-radius: var(--au-r);
+  padding: 0.75rem 0.85rem;
+  margin-bottom: 1.25rem;
+}
+.demo-quick-fill .demo-fill-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--au-gold-light, #e2c76b);
+  font-weight: 600;
+}
+.btn-outline-light-au {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: var(--au-r-pill);
+  transition: all 0.2s ease;
+  padding: 0.35rem 0.75rem;
+}
+.btn-outline-light-au:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--au-gold-light, #e2c76b);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.auth-card-centered #loginSuccess:not([hidden]),
+.auth-card-centered .alert-success-au {
+  background: rgba(46, 125, 50, 0.28);
+  border: 1px solid rgba(76, 175, 80, 0.55);
+  color: #c8e6c9;
+  border-radius: var(--au-r);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  animation: au-fade-in 0.3s ease;
+}
+.alert-success-au i {
+  font-size: 1.35rem;
+  color: #81c784;
+  flex-shrink: 0;
+}
+
+/* Dedicated OAuth SSO Dialogs */
+.oauth-modal {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.oauth-modal-heading {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.oauth-modal-sub {
+  font-size: 0.85rem;
+  color: var(--au-text-muted, #7c7674);
+  margin-bottom: 0.75rem;
+}
+.oauth-account-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.oauth-account-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--au-border, rgba(0,0,0,0.1));
+  border-radius: 10px;
+  background: var(--au-bg-card, #ffffff);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.oauth-account-item:hover,
+.oauth-account-item.is-selected {
+  border-color: var(--au-gold, #c9a227);
+  background: rgba(201, 162, 39, 0.08);
+}
+.oauth-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+.google-avatar {
+  background: linear-gradient(135deg, #4285f4, #ea4335, #fbbc05, #34a853);
+}
+.fb-avatar {
+  background: #1877f2;
+}
+.apple-avatar {
+  background: #1d1d1f;
+  color: #ffffff;
+}
+.oauth-avatar-alt {
+  background: var(--au-border, #e5e5e5);
+  color: var(--au-text-muted, #666);
+}
+.oauth-account-info {
+  line-height: 1.25;
+}
+.oauth-account-name {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.oauth-account-email {
+  font-size: 0.8rem;
+  color: var(--au-text-muted, #7c7674);
+}
+.oauth-disclaimer {
+  font-size: 0.78rem;
+  color: var(--au-text-muted, #7c7674);
+  line-height: 1.4;
+  margin-top: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+.oauth-feedback {
+  background: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  color: var(--au-text, #222);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+.facebook-modal-bar {
+  background: #1877f2;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+}
+.facebook-app-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(201, 162, 39, 0.12);
+  border: 1px solid var(--au-gold, #c9a227);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.facebook-permissions-box {
+  background: rgba(24, 119, 242, 0.06);
+  border: 1px solid rgba(24, 119, 242, 0.16);
+  border-radius: 8px;
+}
+.btn-facebook {
+  background: #1877f2;
+  color: #ffffff;
+  border: none;
+  font-weight: 500;
+}
+.btn-facebook:hover {
+  background: #1464cc;
+  color: #ffffff;
+}
+.apple-account-box {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--au-border, rgba(0,0,0,0.1));
+  border-radius: 10px;
+}
+[data-bs-theme="dark"] .apple-account-box {
+  background: rgba(255, 255, 255, 0.04);
 }
 
 /* ==========================================================================

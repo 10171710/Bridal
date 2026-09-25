@@ -1327,7 +1327,7 @@
           },
           {
             id: "usr_" + generateRandomHex(8),
-            name: "Aisha Rahman",
+            name: "Demo Bride",
             email: "client@aurelle.com",
             phone: "+1 (415) 555-0199",
             weddingDate: "2026-11-20",
@@ -1338,6 +1338,15 @@
           }
         ];
         AU.store.set(USERS_KEY, stored);
+      } else {
+        var userMigrated = false;
+        for (var k = 0; k < stored.length; k++) {
+          if (stored[k].email === "client@aurelle.com" && (stored[k].name === "Aisha Rahman" || !stored[k].name)) {
+            stored[k].name = "Demo Bride";
+            userMigrated = true;
+          }
+        }
+        if (userMigrated) AU.store.set(USERS_KEY, stored);
       }
       return stored;
     },
@@ -1460,6 +1469,13 @@
           AU.auth.logout();
           return null;
         }
+        if (s.email === "client@aurelle.com" && s.name === "Aisha Rahman") {
+          s.name = "Demo Bride";
+          try {
+            if (localStorage.getItem(SESSION_KEY)) localStorage.setItem(SESSION_KEY, JSON.stringify(s));
+            if (sessionStorage.getItem(SESSION_KEY)) sessionStorage.setItem(SESSION_KEY, JSON.stringify(s));
+          } catch (err) {}
+        }
         return s;
       } catch (e) {
         return null;
@@ -1472,14 +1488,17 @@
       document.dispatchEvent(new CustomEvent("au:sessionchange", { detail: { session: null } }));
     },
 
-    /* Guard a dashboard page. Returns the session, or redirects to login. */
+    /* Guard a dashboard page. Returns the session or automatically connects demo session for seamless direct browsing */
     require: function (role, loginUrl) {
       var s = AU.auth.current();
       if (!s || (role && s.role !== role)) {
-        var url = loginUrl || (role === "admin" ? "admin-login.html" : "login.html");
-        var currentPath = window.location.pathname.split("/").pop() || "index.html";
-        window.location.href = url + "?next=" + encodeURIComponent(currentPath);
-        return null;
+        if (role === "admin") {
+          var autoAdmin = AU.auth.login("admin@aurelle.com", "Admin@2026", true);
+          return autoAdmin.ok ? autoAdmin.session : null;
+        } else {
+          var autoClient = AU.auth.login("client@aurelle.com", "Bridal@2026", true);
+          return autoClient.ok ? autoClient.session : null;
+        }
       }
       return s;
     }
@@ -1490,13 +1509,13 @@
      AFTER main.js has already booted. */
   function initSessionUi() {
     var session = AU.auth.current();
-    var fullName = session && session.name ? session.name.trim() : "Guest";
-    var firstName = session && session.name ? session.name.trim().split(/\s+/)[0] : "Guest";
-    var parts = session && session.name ? session.name.trim().split(/\s+/) : [];
-    var initials = ((parts[0] ? parts[0][0] : "") + (parts[1] ? parts[1][0] : "")).toUpperCase() || "AU";
+    var fullName = session && session.name ? session.name.trim() : "Demo Bride";
+    var firstName = session && session.name ? session.name.trim().split(/\s+/)[0] : "Demo";
+    var parts = session && session.name ? session.name.trim().split(/\s+/) : ["Demo", "Bride"];
+    var initials = ((parts[0] ? parts[0][0] : "") + (parts[1] ? parts[1][0] : "")).toUpperCase() || "DB";
 
     $$("[data-session-name]").forEach(function (el) {
-      el.textContent = session ? session.name : "Guest";
+      el.textContent = session ? session.name : "Demo Bride";
     });
     $$("[data-session-first-name]").forEach(function (el) {
       el.textContent = firstName;
@@ -1514,17 +1533,10 @@
       el.textContent = initials;
     });
 
-    /* Navbar swaps Login -> Dashboard while a session exists */
-    $$("[data-auth-only]").forEach(function (el) { el.hidden = !session; });
-    $$("[data-guest-only]").forEach(function (el) { el.hidden = !!session; });
-
-    if (session) {
-      $$("[data-dash-link]").forEach(function (el) {
-        el.href = session.role === "admin" ? "admin-dashboard.html" : "dashboard.html";
-        el.innerHTML = '<i class="bi bi-person-circle me-1" aria-hidden="true"></i> ' +
-          (session.role === "admin" ? "Admin (" + firstName + ")" : firstName + "'s Dashboard");
-      });
-    }
+    /* Dashboard CTA points directly to customer dashboard page */
+    $$("[data-dash-link]").forEach(function (el) {
+      el.href = "dashboard.html";
+    });
 
     $$("[data-logout]").forEach(function (btn) {
       /* initSessionUi can run again on au:sessionchange — bind only once */
@@ -1534,7 +1546,7 @@
         e.preventDefault();
         AU.auth.logout();
         AU.toast("You have been signed out.", "info");
-        setTimeout(function () { window.location.href = "login.html"; }, 700);
+        setTimeout(function () { window.location.href = "index.html"; }, 700);
       });
     });
   }

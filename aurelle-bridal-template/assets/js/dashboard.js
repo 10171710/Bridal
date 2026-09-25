@@ -21,7 +21,7 @@
   var PANELS = {
     overview: {
       title: "Bridal Overview",
-      sub: "Welcome back, Aisha — your wedding journey with Nadia Sethi."
+      sub: "Welcome back, Demo — your wedding journey with Nadia Sethi."
     },
     appointments: {
       title: "Bridal Appointments",
@@ -55,14 +55,26 @@
      AUTH GUARD
      ------------------------------------------------------------------ */
   function guardAuth() {
-    if (!AU.auth || typeof AU.auth.require !== "function") return null;
-    var session = AU.auth.require("client", "login.html");
+    if (!AU.auth) return null;
+    var session = AU.auth.current();
+    if (!session || session.role !== "client") {
+      var autoLogin = AU.auth.login("client@aurelle.com", "Bridal@2026", true);
+      session = autoLogin.ok ? autoLogin.session : {
+        token: "au_tk_demo_client",
+        id: "usr_demo_client",
+        name: "Demo Bride",
+        email: "client@aurelle.com",
+        role: "client",
+        phone: "+1 (415) 555-0199",
+        weddingDate: "2026-11-20"
+      };
+    }
     if (!session) return null;
 
-    var fullName = (session.name || "Aisha Rahman").trim();
-    var firstName = fullName.split(/\s+/)[0] || "Aisha";
+    var fullName = (session.name || "Demo Bride").trim();
+    var firstName = fullName.split(/\s+/)[0] || "Demo";
     var parts = fullName.split(/\s+/);
-    var initials = ((parts[0] ? parts[0][0] : "") + (parts[1] ? parts[1][0] : "")).toUpperCase() || "AR";
+    var initials = ((parts[0] ? parts[0][0] : "") + (parts[1] ? parts[1][0] : "")).toUpperCase() || "DB";
 
     /* Populate user session data into dashboard UI */
     $$("[data-session-name]").forEach(function (el) { el.textContent = fullName; });
@@ -92,11 +104,11 @@
 
     /* Populate bridal profile form inputs */
     var brideNameInput = $("#profBrideName");
-    if (brideNameInput && (brideNameInput.value === "Aisha Rahman" || !brideNameInput.value)) {
+    if (brideNameInput && (brideNameInput.value === "Aisha Rahman" || brideNameInput.value === "Demo Bride" || !brideNameInput.value)) {
       brideNameInput.value = fullName;
     }
     var emailInput = $("#profEmail");
-    if (emailInput && (emailInput.value === "aisha.rahman@gmail.com" || !emailInput.value)) {
+    if (emailInput && (emailInput.value === "aisha.rahman@gmail.com" || emailInput.value === "client@aurelle.com" || !emailInput.value)) {
       emailInput.value = session.email || "";
     }
     var phoneInput = $("#profPhone");
@@ -279,7 +291,7 @@
 
     // Simulate artist response
     setTimeout(function () {
-      var brideFirst = (AU.auth && AU.auth.current() && AU.auth.current().name) ? AU.auth.current().name.split(/\s+/)[0] : "Aisha";
+      var brideFirst = (AU.auth && AU.auth.current() && AU.auth.current().name) ? AU.auth.current().name.split(/\s+/)[0] : "Demo";
       var replies = [
         "Thank you, " + brideFirst + "! I've noted this in your bridal dossier.",
         "That will look stunning with your lighting and floral dupatta.",
