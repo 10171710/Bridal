@@ -23,7 +23,7 @@
     var dots = $all(".si-dot", form.closest(".card-au") || form);
     var current = 0;
 
-    function showStep(index) {
+    function showStep(index, shouldFocus) {
       if (index < 0 || index >= steps.length) return;
 
       steps.forEach(function (step, i) {
@@ -34,10 +34,12 @@
         dot.classList.toggle("is-done", i < index);
       });
 
-      var heading = $("[data-step-heading]", steps[index]);
-      if (heading) {
-        heading.setAttribute("tabindex", "-1");
-        heading.focus({ preventScroll: false });
+      if (shouldFocus) {
+        var heading = $("[data-step-heading]", steps[index]);
+        if (heading) {
+          heading.setAttribute("tabindex", "-1");
+          heading.focus({ preventScroll: true });
+        }
       }
 
       current = index;
@@ -84,13 +86,13 @@
           }
           return;
         }
-        showStep(current + 1);
+        showStep(current + 1, true);
       });
     });
 
     $all("[data-step-back]", form).forEach(function (btn) {
       btn.addEventListener("click", function () {
-        showStep(current - 1);
+        showStep(current - 1, true);
       });
     });
 
@@ -134,7 +136,7 @@
     } catch (e) {}
 
     /* Start clean in case the browser restored form state on reload */
-    showStep(0);
+    showStep(0, false);
   }
 
   document.addEventListener("DOMContentLoaded", function () {

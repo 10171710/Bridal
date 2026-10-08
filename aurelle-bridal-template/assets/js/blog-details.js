@@ -194,7 +194,7 @@
               <h3><a href="blog-details.html?slug=${art.slug}">${art.title}</a></h3>
               <p class="small text-muted-au">${art.lead}</p>
               <div class="post-foot">
-                <a href="blog-details.html?slug=${art.slug}" class="btn btn-soft btn-sm" data-i18n="cta.readMore">Read More</a>
+                <a href="blog-details.html?slug=${art.slug}" class="btn btn-soft rounded-pill w-100" data-i18n="cta.readMore">Read More</a>
               </div>
             </div>
           </article>

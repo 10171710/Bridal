@@ -430,7 +430,7 @@
       }
     });
 
-    /* Close the mobile menu after choosing a destination */
+    /* Close the mobile menu after choosing a destination or clicking outside */
     var collapse = $("#auNavbarNav");
     if (collapse) {
       $$("#auNavbarNav .nav-link:not(.dropdown-toggle), #auNavbarNav .dropdown-item").forEach(function (link) {
@@ -440,6 +440,15 @@
             if (inst) inst.hide();
           }
         });
+      });
+
+      document.addEventListener("click", function (e) {
+        if (window.innerWidth < 992 && collapse.classList.contains("show")) {
+          if (!collapse.contains(e.target) && !e.target.closest(".navbar-toggler")) {
+            var inst = window.bootstrap && window.bootstrap.Collapse.getInstance(collapse);
+            if (inst) inst.hide();
+          }
+        }
       });
     }
   }

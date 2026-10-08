@@ -480,5 +480,10 @@
   justify-content: flex-start;
 }
 
+[dir="rtl"] .flight-hub-card .btn {
+  text-align: center;
+  justify-content: center;
+}
+
 
 

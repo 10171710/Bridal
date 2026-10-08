@@ -143,14 +143,14 @@
     <!-- ==================================================================
          PAGE HERO
          ================================================================== -->
-    <section class="page-hero">
+    <section class="page-hero page-hero-pricing">
       <div class="container container-au">
         <nav class="breadcrumb-au" aria-label="Breadcrumb">
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item active" aria-current="page">Pricing</li>
           </ol>
         </nav>
-        <span class="eyebrow-au"><i class="bi bi-tag" aria-hidden="true"></i> Pricing</span>
+        <span class="eyebrow-au mb-3"><i class="bi bi-tag" aria-hidden="true"></i> Pricing &amp; Packages</span>
         <h1>Pricing &amp; Packages</h1>
         <p class="lead">Three packages, one transparent rate card. No hidden kit fees, no surprise travel charges within 40 miles, and no pressure to book more than you need.</p>
       </div>
@@ -163,7 +163,7 @@
       <div class="container container-au">
 
         <div class="section-head text-center reveal">
-          <span class="eyebrow-au"><i class="bi bi-box-seam" aria-hidden="true"></i> Packages</span>
+          <span class="eyebrow-au mb-3"><i class="bi bi-box-seam" aria-hidden="true"></i> Packages</span>
           <h2>Three ways to book Aurelle</h2>
           <p class="lead">Every package includes your artist's full kit, a written timeline and touch-ups until the last photograph is taken.</p>
           <div class="divider-au"></div>
@@ -181,10 +181,14 @@
 
           <div class="col-lg-4 col-md-6 reveal">
             <div class="pricing-card" id="trial" data-plan="trial">
-              <h3 class="plan-name">The Trial</h3>
-              <p class="plan-desc">For brides deciding on their look.</p>
-              <div class="plan-price" data-standard="240" data-peak="276"><sup>$</sup>240</div>
-              <div class="plan-period">one 2-hour session</div>
+              <div>
+                <h3 class="plan-name">The Trial</h3>
+                <p class="plan-desc">For brides deciding on their signature look.</p>
+              </div>
+              <div class="plan-price-wrap">
+                <div class="plan-price" data-standard="240" data-peak="276"><sup>$</sup>240</div>
+                <div class="plan-period">one 2-hour session</div>
+              </div>
               <ul class="feature-list plan-features">
                 <li>Full consultation &amp; mood board review</li>
                 <li>Complete makeup application</li>
@@ -200,10 +204,14 @@
           <div class="col-lg-4 col-md-6 reveal" data-delay="1">
             <div class="pricing-card is-featured" id="bride" data-plan="bride">
               <span class="pricing-badge">Most Booked</span>
-              <h3 class="plan-name">The Bride</h3>
-              <p class="plan-desc">Everything for the wedding day itself.</p>
-              <div class="plan-price" data-standard="1690" data-peak="1944"><sup>$</sup>1,690</div>
-              <div class="plan-period">trial + wedding day</div>
+              <div>
+                <h3 class="plan-name">The Bride</h3>
+                <p class="plan-desc">Everything for the wedding day itself.</p>
+              </div>
+              <div class="plan-price-wrap">
+                <div class="plan-price" data-standard="1690" data-peak="1944"><sup>$</sup>1,690</div>
+                <div class="plan-period">trial + wedding day</div>
+              </div>
               <ul class="feature-list plan-features">
                 <li>Trial session included</li>
                 <li>Wedding-day makeup &amp; hair</li>
@@ -218,10 +226,14 @@
 
           <div class="col-lg-4 col-md-6 reveal" data-delay="2">
             <div class="pricing-card" id="full-week" data-plan="full-week">
-              <h3 class="plan-name">The Full Week</h3>
-              <p class="plan-desc">Every function, one team, one contract.</p>
-              <div class="plan-price" data-standard="3450" data-peak="3968"><sup>$</sup>3,450</div>
-              <div class="plan-period">up to 4 functions</div>
+              <div>
+                <h3 class="plan-name">The Full Week</h3>
+                <p class="plan-desc">Every function, one team, one contract.</p>
+              </div>
+              <div class="plan-price-wrap">
+                <div class="plan-price" data-standard="3450" data-peak="3968"><sup>$</sup>3,450</div>
+                <div class="plan-period">up to 4 functions</div>
+              </div>
               <ul class="feature-list plan-features">
                 <li>Everything in The Bride</li>
                 <li>Mehendi &amp; sangeet styling</li>
@@ -236,13 +248,13 @@
 
         </div>
 
-        <div class="row mt-4">
+        <div class="row mt-5 pt-2 pt-lg-3">
           <div class="col-12">
             <div class="card-au reveal" id="planSummary" hidden aria-live="polite">
               <div class="card-body-au">
                 <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
                   <div>
-                    <span class="eyebrow-au"><i class="bi bi-check-circle" aria-hidden="true"></i> Your selection</span>
+                    <span class="eyebrow-au mb-2"><i class="bi bi-check-circle" aria-hidden="true"></i> Your selection</span>
                     <h3 class="h4 mb-1" id="planSummaryName">The Bride</h3>
                     <p class="text-muted-au mb-0">Package total: <strong id="planSummaryPrice">$1,690</strong> &middot; 25% deposit to book: <strong id="planSummaryDeposit">$423</strong></p>
                   </div>
@@ -255,7 +267,7 @@
           </div>
         </div>
 
-        <div class="text-center mt-5 reveal">
+        <div class="pricing-reassurance text-center mt-5 pt-3 reveal">
           <p class="text-muted-au mb-0"><i class="bi bi-shield-check text-rose" aria-hidden="true"></i> Date held with a 25% deposit · balance in two installments</p>
         </div>
       </div>
@@ -268,7 +280,7 @@
       <div class="container container-au position-relative">
 
         <div class="section-head text-center reveal">
-          <span class="eyebrow-au"><i class="bi bi-list-check" aria-hidden="true"></i> Side by side</span>
+          <span class="eyebrow-au mb-3"><i class="bi bi-list-check" aria-hidden="true"></i> Side by side</span>
           <h2>Compare every package, line by line</h2>
           <p class="lead">If you are choosing between two packages, this table is the fastest way to see exactly what changes.</p>
           <div class="divider-au"></div>
@@ -280,82 +292,82 @@
               <tr>
                 <th scope="col">Feature</th>
                 <th scope="col" class="text-center">The Trial</th>
-                <th scope="col" class="text-center">The Bride</th>
+                <th scope="col" class="text-center col-featured">The Bride <span class="badge badge-soft badge-gold ms-1" style="font-size:0.65rem; vertical-align:middle;">Popular</span></th>
                 <th scope="col" class="text-center">The Full Week</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">Trial session</th>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
+                <td class="text-center col-featured"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
               </tr>
               <tr>
                 <th scope="row">Wedding-day makeup</th>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center col-featured"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
               </tr>
               <tr>
                 <th scope="row">Wedding-day hair</th>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center col-featured"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
               </tr>
               <tr>
                 <th scope="row">Airbrush option</th>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center col-featured"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
               </tr>
               <tr>
                 <th scope="row">Veil/dupatta setting</th>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center col-featured"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
               </tr>
               <tr>
                 <th scope="row">Touch-up kit</th>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center col-featured"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
               </tr>
               <tr>
                 <th scope="row">Mehendi application</th>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center col-featured"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
               </tr>
               <tr>
                 <th scope="row">Reception look change</th>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center col-featured"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
               </tr>
               <tr>
                 <th scope="row">Sangeet styling</th>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center col-featured"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
               </tr>
               <tr>
                 <th scope="row">Family members included</th>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center col-featured"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
               </tr>
               <tr>
                 <th scope="row">Artist on-call</th>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center col-featured"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
               </tr>
               <tr>
                 <th scope="row">Travel within 40mi</th>
-                <td class="text-center"><i class="bi bi-x-lg" aria-hidden="true"></i><span class="visually-hidden">Not included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
-                <td class="text-center"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-cross"><i class="bi bi-x-lg" aria-hidden="true"></i></span><span class="visually-hidden">Not included</span></td>
+                <td class="text-center col-featured"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
+                <td class="text-center"><span class="table-icon-check"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="visually-hidden">Included</span></td>
               </tr>
             </tbody>
           </table>
@@ -371,58 +383,58 @@
       <div class="container container-au">
 
         <div class="section-head text-center reveal">
-          <span class="eyebrow-au"><i class="bi bi-brush" aria-hidden="true"></i> Prefer to book by service</span>
+          <span class="eyebrow-au mb-3"><i class="bi bi-brush" aria-hidden="true"></i> Prefer to book by service</span>
           <h2>À la carte pricing</h2>
           <p class="lead">Not every bride needs a package. Book any single service on its own, at the same rate it costs inside a package.</p>
           <div class="divider-au"></div>
         </div>
 
         <div class="table-responsive-au reveal">
-          <table class="table table-au mb-0">
+          <table class="table table-au alacarte-table mb-0">
             <thead>
               <tr>
-                <th scope="col">Service</th>
-                <th scope="col">From</th>
-                <th scope="col">Duration</th>
-                <th scope="col">Typical add-ons</th>
+                <th scope="col" style="width: 28%;">Service</th>
+                <th scope="col" style="width: 16%;">From</th>
+                <th scope="col" style="width: 22%;">Duration</th>
+                <th scope="col" style="width: 34%;">Typical add-ons</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row"><a href="services.html#bridal-makeup">Bridal Makeup</a></th>
-                <td>$890</td>
-                <td>3 hours</td>
-                <td>False lashes, extended-wear top-up kit</td>
+                <th scope="row"><a href="services.html#bridal-makeup"><i class="bi bi-arrow-right-short text-rose" aria-hidden="true"></i> Bridal Makeup</a></th>
+                <td><span class="price-tag">$890</span></td>
+                <td><span class="duration-text"><i class="bi bi-clock me-1 text-muted-au" aria-hidden="true"></i> 3 hours</span></td>
+                <td><span class="addons-text">False lashes, extended-wear top-up kit</span></td>
               </tr>
               <tr>
-                <th scope="row"><a href="services.html#hairstyling">Hairstyling</a></th>
-                <td>$520</td>
-                <td>2 hours</td>
-                <td>Fresh floral detail, clip-in extension blending</td>
+                <th scope="row"><a href="services.html#hairstyling"><i class="bi bi-arrow-right-short text-rose" aria-hidden="true"></i> Hairstyling</a></th>
+                <td><span class="price-tag">$520</span></td>
+                <td><span class="duration-text"><i class="bi bi-clock me-1 text-muted-au" aria-hidden="true"></i> 2 hours</span></td>
+                <td><span class="addons-text">Fresh floral detail, clip-in extension blending</span></td>
               </tr>
               <tr>
-                <th scope="row"><a href="services.html#mehendi">Mehendi</a></th>
-                <td>$340</td>
-                <td>2–3 hours</td>
-                <td>Extra hand/arm length, glitter or stone accents</td>
+                <th scope="row"><a href="services.html#mehendi"><i class="bi bi-arrow-right-short text-rose" aria-hidden="true"></i> Mehendi</a></th>
+                <td><span class="price-tag">$340</span></td>
+                <td><span class="duration-text"><i class="bi bi-clock me-1 text-muted-au" aria-hidden="true"></i> 2–3 hours</span></td>
+                <td><span class="addons-text">Extra hand/arm length, glitter or stone accents</span></td>
               </tr>
               <tr>
-                <th scope="row"><a href="services.html#trial-makeup">Trial Makeup</a></th>
-                <td>$240</td>
-                <td>2 hours</td>
-                <td>Second hairstyle direction, full photo-test package</td>
+                <th scope="row"><a href="services.html#trial-makeup"><i class="bi bi-arrow-right-short text-rose" aria-hidden="true"></i> Trial Makeup</a></th>
+                <td><span class="price-tag">$240</span></td>
+                <td><span class="duration-text"><i class="bi bi-clock me-1 text-muted-au" aria-hidden="true"></i> 2 hours</span></td>
+                <td><span class="addons-text">Second hairstyle direction, full photo-test package</span></td>
               </tr>
               <tr>
-                <th scope="row"><a href="services.html#engagement-styling">Engagement Styling</a></th>
-                <td>$610</td>
-                <td>2.5 hours</td>
-                <td>Outfit &amp; jewellery styling consult</td>
+                <th scope="row"><a href="services.html#engagement-styling"><i class="bi bi-arrow-right-short text-rose" aria-hidden="true"></i> Engagement Styling</a></th>
+                <td><span class="price-tag">$610</span></td>
+                <td><span class="duration-text"><i class="bi bi-clock me-1 text-muted-au" aria-hidden="true"></i> 2.5 hours</span></td>
+                <td><span class="addons-text">Outfit &amp; jewellery styling consult</span></td>
               </tr>
               <tr>
-                <th scope="row"><a href="services.html#reception-styling">Reception Styling</a></th>
-                <td>$740</td>
-                <td>2 hours</td>
-                <td>Full look change, contouring touch-up</td>
+                <th scope="row"><a href="services.html#reception-styling"><i class="bi bi-arrow-right-short text-rose" aria-hidden="true"></i> Reception Styling</a></th>
+                <td><span class="price-tag">$740</span></td>
+                <td><span class="duration-text"><i class="bi bi-clock me-1 text-muted-au" aria-hidden="true"></i> 2 hours</span></td>
+                <td><span class="addons-text">Full look change, contouring touch-up</span></td>
               </tr>
             </tbody>
           </table>
@@ -443,7 +455,7 @@
       <div class="container container-au">
 
         <div class="section-head text-center reveal">
-          <span class="eyebrow-au"><i class="bi bi-credit-card" aria-hidden="true"></i> How it works</span>
+          <span class="eyebrow-au mb-3"><i class="bi bi-credit-card" aria-hidden="true"></i> How it works</span>
           <h2>Payment terms</h2>
           <p class="lead">Straightforward, in writing, before you ever hand over a card.</p>
           <div class="divider-au"></div>
@@ -452,32 +464,26 @@
         <div class="row g-4">
 
           <div class="col-lg-4 col-md-6 reveal">
-            <div class="card-au h-100">
-              <div class="card-body-au">
-                <div class="icon-box mb-3"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
-                <h3 class="h5">25% deposit holds the date</h3>
-                <p class="text-muted-au mb-0">A 25% deposit reserves your date and your artist on our calendar. It is applied in full to your final balance — never an extra fee.</p>
-              </div>
+            <div class="payment-card">
+              <div class="icon-box"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
+              <h3>25% deposit holds the date</h3>
+              <p>A 25% deposit reserves your date and your artist on our calendar. It is applied in full to your final balance — never an extra fee.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 reveal" data-delay="1">
-            <div class="card-au h-100">
-              <div class="card-body-au">
-                <div class="icon-box mb-3"><i class="bi bi-calendar2-range" aria-hidden="true"></i></div>
-                <h3 class="h5">Balance in two installments</h3>
-                <p class="text-muted-au mb-0">The remaining balance splits in two: 50% due 30 days before your date, and the final 25% due on the wedding day itself.</p>
-              </div>
+            <div class="payment-card">
+              <div class="icon-box"><i class="bi bi-calendar2-range" aria-hidden="true"></i></div>
+              <h3>Balance in two installments</h3>
+              <p>The remaining balance splits in two: 50% due 30 days before your date, and the final 25% due on the wedding day itself.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 reveal" data-delay="2">
-            <div class="card-au h-100">
-              <div class="card-body-au">
-                <div class="icon-box mb-3"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></div>
-                <h3 class="h5">Free rescheduling</h3>
-                <p class="text-muted-au mb-0">Dates move. Reschedule at no charge up to 60 days out, subject to your artist's availability on the new date.</p>
-              </div>
+            <div class="payment-card">
+              <div class="icon-box"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></div>
+              <h3>Free rescheduling</h3>
+              <p>Dates move. Reschedule at no charge up to 60 days out, subject to your artist's availability on the new date.</p>
             </div>
           </div>
 
@@ -497,13 +503,13 @@
       <div class="container container-au">
 
         <div class="section-head text-center reveal">
-          <span class="eyebrow-au"><i class="bi bi-question-circle" aria-hidden="true"></i> Common questions</span>
+          <span class="eyebrow-au mb-3"><i class="bi bi-question-circle" aria-hidden="true"></i> Common questions</span>
           <h2>Pricing questions, answered</h2>
           <div class="divider-au"></div>
         </div>
 
         <div class="row justify-content-center">
-          <div class="col-lg-9">
+          <div class="col-lg-9 col-xl-8">
             <div class="accordion accordion-au reveal" id="pricingFaqAccordion">
 
               <div class="accordion-item">
@@ -610,7 +616,7 @@
         <div class="cta-box is-visible">
           <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-              <span class="eyebrow-au"><i class="bi bi-calendar-heart" aria-hidden="true"></i> Reserve your date</span>
+              <span class="eyebrow-au mb-3"><i class="bi bi-calendar-heart" aria-hidden="true"></i> Reserve your date</span>
               <h2 class="mb-3">Ready to lock in your date?</h2>
               <p class="lead mb-4">Send your date and function list and we will confirm availability within one business day — or browse the full service menu first if you are still deciding.</p>
               <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
