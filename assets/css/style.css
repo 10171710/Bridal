@@ -1248,6 +1248,7 @@ hr { border-color: var(--au-border); opacity: 1; }
 .hero-actions .btn-outline-brand:hover,
 .hero-actions .btn-outline-brand:focus {
   border-color: var(--au-rose-dark, #96545f);
+  color: #fff;
 }
 
 .hero-meta {
