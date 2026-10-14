@@ -1,0 +1,75 @@
+/* ==========================================================================
+   AURELLE — Font stack
+   --------------------------------------------------------------------------
+   The template ships with NO binary font files so it stays dependency-free
+   and instantly portable. Two ways to supply the typefaces:
+
+   A) CDN (default, used by every page's <head>)
+      Google Fonts loads Cormorant Garamond, Jost and Italiana.
+      Nothing to do — it already works.
+
+   B) Self-hosted (recommended for production / offline / GDPR)
+      1. Download the families from https://fonts.google.com
+         - Cormorant Garamond  (400, 600, 700)
+         - Jost                (300, 400, 500, 600)
+         - Italiana            (400)
+      2. Drop the .woff2 files into this folder (assets/fonts/).
+      3. Uncomment the @font-face blocks below.
+      4. In every page's <head>, delete the two fonts.googleapis.com
+         link tags and add:
+         <link rel="stylesheet" href="assets/fonts/fonts.css">
+
+   Either way the rest of the template reads the families through the
+   --au-font-* custom properties in assets/css/style.css, so nothing else
+   needs to change.
+   ========================================================================== */
+
+/*
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("cormorant-garamond-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("cormorant-garamond-600.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("cormorant-garamond-700.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("jost-300.woff2") format("woff2");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("jost-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("jost-500.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("jost-600.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Italiana";
+  src: url("italiana-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+*/
+
+/* Fallback metrics — keeps layout stable before webfonts resolve, and is the
+   final look if neither CDN nor local files are available. */
+:root {
+  --au-font-fallback-display: Georgia, "Times New Roman", "Noto Serif", serif;
+  --au-font-fallback-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
